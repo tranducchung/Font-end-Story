@@ -26,4 +26,9 @@ export class AppComponent implements OnInit {
       });
     }
   }
+
+  logOut() {
+    this.tokenService.signOut();
+    window.location.reload();
+  }
 }

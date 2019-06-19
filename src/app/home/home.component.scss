@@ -1,0 +1,51 @@
+.img-fluid{
+  width: 100%;
+  margin-top: 25px;
+  z-index: 1;
+}
+.carousel-caption h5{
+  font-size: 25px;
+  padding-right: 350px;
+}
+.carousel-caption p{
+  padding-right: 350px;
+}
+.Xbox{
+  position: relative;
+}
+.Xbox p{
+  position: absolute;
+  top: 272px;
+  left: 464px;
+  font-size: 50px;
+  font-weight: 900;
+  color: currentColor;
+}
+.Xbox p:hover{
+  color: blue;
+}
+.carousel-item{
+  position: relative;
+}
+.carousel-item active{
+  position: relative;
+
+}
+.carousel-caption{
+  position: absolute;
+  top: 110px;
+}
+.carousel-caption button{
+  position: absolute;
+  left: 95px;
+}
+
+//---------------------------
+
+.hover:hover i {
+  transform: scale(1.3);
+  transition: 0.3s;
+}
+.hover i {
+  transition: 0.3s;
+}
