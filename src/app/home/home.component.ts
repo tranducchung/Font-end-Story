@@ -21,8 +21,5 @@ export class HomeComponent implements OnInit {
     };
   }
 
-  logOut() {
-    this.tokenService.signOut();
-    window.location.reload();
-  }
+
 }

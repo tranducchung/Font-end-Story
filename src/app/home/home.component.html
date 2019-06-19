@@ -1,11 +1,4 @@
 <div *ngIf="info.token; else loggedOut">
-  <h5 class="text-primary">Your Information</h5>
-  <p>
-    <strong>Username:</strong> {{info.username}}<br/>
-    <strong>Roles:</strong> {{info.author}}<br/>
-  </p>
-  <button class="btn btn-secondary" (click)="logOut()">Logout</button>
-</div>
 
 <div class="container" style="height: auto">
   <header class="row">
@@ -158,8 +151,8 @@
   </footer>
   <hr style="margin-top: 60px;">
 </div>
-
+</div>
 
 <ng-template #loggedOut>
-  <app-login></app-login>
+<app-login></app-login>
 </ng-template>
