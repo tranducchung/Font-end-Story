@@ -1,63 +1,6 @@
 <div *ngIf="isLoggedIn; else loggedOut">
-<!--  Logged in as {{roles}}.-->
   <app-home></app-home>
 </div>
-<!--<div class="hello">-->
-<!--  <ng-template #loggedOut style="background-color: blue">-->
-<!--    <div class="container" >-->
-<!--      <div class="row">-->
-<!--        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">-->
-<!--          <div class="card card-signin my-5">-->
-<!--            <div class="card-body">-->
-<!--              <h5 class="card-title text-center">Sign In</h5>-->
-
-<!--              <form name="form-signin" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>-->
-
-<!--                <div class="form-group">-->
-<!--                  <label for="email">Email</label>-->
-<!--                  <input type="text" id="email" class="form-control" name="email" [(ngModel)]="form.email"-->
-<!--                         #email="ngModel"-->
-<!--                         required/>-->
-<!--                  <div *ngIf="f.submitted && email.invalid">-->
-<!--                    <div *ngIf="email.errors.required">email is required</div>-->
-<!--                  </div>-->
-<!--                </div>-->
-
-<!--                <div class="form-group">-->
-<!--                  <label for="password">Password</label>-->
-<!--                  <input type="password" id="password" class="form-control" name="password" [(ngModel)]="form.password"-->
-<!--                         #password="ngModel"-->
-<!--                         required minlength="6"/>-->
-<!--                  <div *ngIf="f.submitted && password.invalid">-->
-<!--                    <div *ngIf="password.errors.required">Password is required</div>-->
-<!--                    <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>-->
-<!--                  </div>-->
-<!--                </div>-->
-
-<!--                <div class="custom-control custom-checkbox mb-3">-->
-<!--                  <input type="checkbox" class="custom-control-input" id="customCheck1">-->
-<!--                  <label class="custom-control-label" for="customCheck1">Remember me</label>-->
-<!--                </div>-->
-
-
-<!--                <button class="btn btn-lg btn-primary btn-block text-uppercase">Login</button>-->
-<!--                <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">-->
-<!--                  Login failed: {{errorMessage}}-->
-<!--                </div>-->
-
-<!--              </form>-->
-<!--              <hr/>-->
-<!--              <span style="color: red">Don't have an account? We can fix that!</span> <a href="signup" class="btn btn-link">Sign Up</a>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </ng-template>-->
-<!--</div>-->
-
-<!-- Sing in  Form -->
-
 <style>
   .signin-image a:hover {
     color: #6dabe4;
@@ -73,7 +16,7 @@
         </div>
 
         <div class="signin-form">
-          <h2 class="form-title">Sign up</h2>
+          <h2 class="form-title">Sign in</h2>
           <form method="POST" class="register-form" id="login-form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
             <div class="form-group">
               <label for="email"><i class="far fa-envelope"></i></label>
@@ -103,7 +46,7 @@
           </form>
           <div class="social-login">
             <span>Or login with</span>
-            <div class="mangxahoi">
+            <div>
               <a href="#" class="hover"><i class="fab fa-facebook-square" style="margin-left: 5px; zoom: 2"></i></a>
               <a href="#" class="hover"><i class="fab fa-twitter " style="margin-left: 5px; zoom: 2 "></i></a>
               <a href="#" class="hover"><i class="fab fa-google" style="margin-left: 5px; zoom: 2;color: red  "></i></a>
