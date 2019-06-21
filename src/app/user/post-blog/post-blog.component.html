@@ -1,18 +1,20 @@
-<h2 class="text-center">Chỉnh Sửa Blog</h2>
+<h2 class="text-center">Write Blog</h2>
 <form [formGroup]="blogForm" (ngSubmit)="onSubmit()" class="col-md-6 offset-md-3">
   <div class="form-group">
-    <label for="exampleFormControlInput1">Tiêu Đề</label>
+    <label for="exampleFormControlInput1">Title</label>
     <input type="text" class="form-control" id="exampleFormControlInput1" formControlName="title">
   </div>
   <div *ngIf="blogForm.get('title').invalid && blogForm.get('title').touched" style="color: red">
-    Phần tiêu đề không được để trống và có chiều dài tối thiểu là 2
+    The title section must not be blank and have a minimum length of 2
   </div>
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Nội Dung</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="content"></textarea>
+    <label for="exampleFormControlTextarea1">Content</label>
+<!--    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="content"></textarea>-->
+    <ckeditor [editor]="Editor" formControlName="content" id="exampleFormControlTextarea1"></ckeditor>
   </div>
   <div *ngIf="blogForm.get('content').invalid && blogForm.get('content').touched" style="color: red">
-    Phần nội dung không được để trống và có chiều dài tối thiểu là 2
+    The content section must not be blank and have a minimum length of 2
   </div>
   <input class="btn btn-primary" type="submit" value="Thay Đổi">
 </form>
+

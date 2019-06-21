@@ -9,6 +9,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { BlogComponent } from './blog/blog.component';
 import { EditBlogComponent } from './edit-blog/edit-blog.component';
 import { PostBlogComponent } from './post-blog/post-blog.component';
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [UserComponent, BlogComponent, EditBlogComponent, PostBlogComponent],
@@ -19,6 +20,7 @@ import { PostBlogComponent } from './post-blog/post-blog.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    CKEditorModule
   ],
   exports: [UserComponent]
 })
