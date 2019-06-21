@@ -1,0 +1,20 @@
+<table class="table table-striped col-md-10 offset-md-1">
+  <thead>
+  <tr>
+    <th scope="col">STT</th>
+    <th scope="col">Title</th>
+    <th scope="col">Content</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let blog of blogList; index as i">
+    <th scope="row">{{i+1}}</th>
+    <td>{{blog.title}}</td>
+    <td [innerHTML]="blog.content"></td>
+    <td><a [routerLink]="['/listBlog',blog.id,'edit']">Edit</a></td>
+    <td><a (click)="delete(i)">Xóa</a></td>
+  </tr>
+  </tbody>
+</table>
