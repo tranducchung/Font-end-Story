@@ -9,13 +9,28 @@
     <ul class="nav navbar-nav" routerLinkActive="active">
 
       <li *ngIf="authority === 'user'" class="nav-item">
-        <a class="nav-link" routerLink="admin">Post Story</a>
+        <a class="nav-link" routerLink="addBlog">Post Story</a>
       </li>
+<<<<<<< HEAD
       <li *ngIf="authority != null" class="nav-item" >
         <a class="nav-link" routerLink="home">Home</a>
       </li>
       <li *ngIf="authority === 'user'" class="nav-item">
         <a class="nav-link" routerLink="user">User Board</a>
+=======
+      <li class="nav-item" *ngIf="authority === 'user' "><a class="nav-link" routerLink="home">Home</a></li>
+      <li class="nav-item dropdown" *ngIf="authority === 'user'">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          User Board
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="user">Info User</a>
+          <a class="dropdown-item" routerLink="listBlog">My Blog</a>
+          <a class="dropdown-item" routerLink="addBlog">Post Blog</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+>>>>>>> 797c7f65d23d36f19f2c49a84db2629e5a73b889
       </li>
       <li *ngIf="authority === 'admin'" class="nav-item">
         <a class="nav-link" routerLink="admin">Admin Board</a>

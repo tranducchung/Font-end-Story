@@ -25,5 +25,4 @@ export class UserService {
   getAdmin(): Observable<string> {
     return this.http.get(this.adminUrl, {responseType: 'text'});
   }
-
 }
