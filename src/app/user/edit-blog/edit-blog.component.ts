@@ -3,6 +3,7 @@ import {Blog} from '../ipost';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PostService} from '../../service/post.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-edit-blog',
@@ -10,6 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./edit-blog.component.scss']
 })
 export class EditBlogComponent implements OnInit {
+  private Editor = ClassicEditor;
   blog: Blog;
   blogForm: FormGroup;
   constructor(

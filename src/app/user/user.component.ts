@@ -14,14 +14,14 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getUser().subscribe(
-      data => {
-        this.board = data;
-      },
-      error => {
-        this.errorMessage = `${error.status}: ${JSON.parse(error.error).message}`;
-      }
-    );
+    // this.userService.getUser().subscribe(
+    //   data => {
+    //     this.board = data;
+    //   },
+    //   error => {
+    //     this.errorMessage = `${error.status}: ${JSON.parse(error.error).message}`;
+    //   }
+  // )
   }
 
 }
