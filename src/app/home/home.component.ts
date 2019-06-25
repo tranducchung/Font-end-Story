@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TokenService} from '../auth/token.service';
+import {JwtResponse} from '../auth/jwt-response';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit {
       token: this.tokenService.getToken(),
       username: this.tokenService.getUsername(),
       email: this.tokenService.getEmail(),
-      author: this.tokenService.getAuthor()
+      authorities: this.tokenService.getAuthor()
     };
   }
 

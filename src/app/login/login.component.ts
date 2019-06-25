@@ -11,7 +11,7 @@ import {TokenService} from '../auth/token.service';
 export class LoginComponent implements OnInit {
 
   form: any = {};
-    isLoggedIn = false;
+  isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];

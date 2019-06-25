@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Blog} from '../ipost';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PostService} from '../../service/post.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {TokenService} from '../../auth/token.service';
 
 @Component({
   selector: 'app-edit-blog',
@@ -12,14 +13,23 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class EditBlogComponent implements OnInit {
   blog: Blog;
   blogForm: FormGroup;
+  info: any;
   constructor(
     private postService: PostService,
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
-  ) { }
+    private router: Router,
+    private tokenService: TokenService
+  ) {
+  }
 
   ngOnInit() {
+    this.info = {
+      token: this.tokenService.getToken(),
+      username: this.tokenService.getUsername(),
+      email: this.tokenService.getEmail(),
+      authorities: this.tokenService.getAuthor()
+    };
     this.blogForm = this.fb.group(
       {
         title: ['', [Validators.required, Validators.minLength(2)]],
@@ -31,8 +41,8 @@ export class EditBlogComponent implements OnInit {
         this.blog = next;
         this.blogForm.patchValue(this.blog);
       }, error => {
-      console.log(error);
-      this.blog = null;
+        console.log(error);
+        this.blog = null;
       }
     );
   }
@@ -46,7 +56,7 @@ export class EditBlogComponent implements OnInit {
       };
       this.postService.update(data).subscribe(() => {
         this.router.navigate(['/listBlog']);
-      }, error => console.log(error) );
+      }, error => console.log(error));
     }
   }
 }

@@ -1,39 +1,66 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Blog} from '../ipost';
 import {PostService} from '../../service/post.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import {TokenService} from '../../auth/token.service';
+
 @Component({
   selector: 'app-post-blog',
+
   templateUrl: './post-blog.component.html',
   styleUrls: ['./post-blog.component.scss']
 })
+
+
 export class PostBlogComponent implements OnInit {
-  private Editor = ClassicEditor;
+  // public Editor = ClassicEditor;
+
+  //   .create(document.querySelector('#exampleFormControlTextarea1'), {
+  //   plugins: [CKFinder],
+  //   toolbar: ['imageUpload'],
+  //   ckfinder: {
+  //     uploadUrl: 'http://localhost:4200/assets/Image/'
+  //   }
+  // })
+  //   .then()
+  //   .catch();
+
+
   blogForm: FormGroup;
   blog: Blog;
+  info: any;
+
   constructor(
     private postService: PostService,
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
-  ) { }
+    private router: Router,
+    private tokenService: TokenService
+  ) {
+  }
 
   ngOnInit() {
+    this.info = {
+      token: this.tokenService.getToken(),
+      username: this.tokenService.getUsername(),
+      email: this.tokenService.getEmail(),
+      authorities: this.tokenService.getAuthor()
+    };
     this.blogForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(2)]],
       content: ['', [Validators.required, Validators.minLength(2)]]
     });
   }
+
   onSubmit() {
     const {value} = this.blogForm;
     const data = {
       ...this.blog,
-      ... value
+      ...value
     };
     this.postService.addBlog(data).subscribe(next => {
       this.router.navigate(['/listBlog']);
-    }, error => console.log(error) );
+    }, error => console.log(error));
   }
 }
