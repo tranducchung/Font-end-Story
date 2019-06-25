@@ -18,10 +18,6 @@ export class UserService {
     return this.http.get(this.userUrl, {responseType: 'text'});
   }
 
-  getPm(): Observable<string> {
-    return this.http.get(this.pmUrl, {responseType: 'text'});
-  }
-
   getAdmin(): Observable<string> {
     return this.http.get(this.adminUrl, {responseType: 'text'});
   }

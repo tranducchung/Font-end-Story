@@ -28,6 +28,10 @@ import {httpInterceptorProviders} from './auth/auth-interceptor';
     UserModule
   ],
   providers: [httpInterceptorProviders],
+  exports: [
+    LoginComponent,
+    HomeComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
