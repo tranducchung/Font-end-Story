@@ -11,12 +11,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class DetailBlogComponent implements OnInit {
   blog: Blog;
-  // blogForm: FormGroup;
   constructor(
     private postService: PostService,
     private route: ActivatedRoute,
-    private router: Router,
-    // private fb: FormBuilder
   ) {}
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -27,11 +24,5 @@ export class DetailBlogComponent implements OnInit {
       console.log(error);
       this.blog = null;
     } );
-  }
-
-  delete(id: number) {
-    this.postService.deleteBlog(id).subscribe(() => {
-      this.router.navigate(['/listBlog']);
-    }, error => console.log(error) );
   }
 }

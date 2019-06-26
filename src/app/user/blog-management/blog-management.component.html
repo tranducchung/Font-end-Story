@@ -1,20 +1,30 @@
-<!--<div *ngIf="info.token; else loggedOut">-->
-<style>
-  .content img{
-    width: 100%;
-  }
-</style>
+
+
+
 <div class="container" style="height: auto">
   <header class="row">
   </header>
   <div class="row" style="margin-top: 50px; font-family: inherit; font-style: italic">
     <article class="col-sm-8">
-      <div *ngIf="blog" >
-        <div [innerHTML]="blog.title" style="font-size: 45px"></div>
-        <div>
-          <a [innerHTML]="blog.content"></a>
-        </div>
-      </div>
+      <button type="button" routerLink="/addBlog" class="btn btn-success"><i class="fas fa-feather-alt"></i> Write Blog</button>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">STT</th>
+          <th scope="col">Title</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let blog of listBlog; index as i">
+          <th scope="row">{{i+1}}</th>
+          <td [innerHTML]="blog.title"></td>
+          <td><button type="button" class="btn btn-warning" [routerLink]="['/blogManagement',blog.id,'edit']"><i class="fas fa-edit"></i></button></td>
+          <td><button type="button" class="btn btn-danger" (click)="delete(i)"><i class="fas fa-trash-alt"></i></button></td>
+        </tr>
+        </tbody>
+      </table>
     </article>
     <aside class="col-sm-4">
       <div>
@@ -48,21 +58,3 @@
   </footer>
   <hr style="margin-top: 60px;">
 </div>
-
-<!--<h2 class="text-center">Update Blog</h2>-->
-<!--<form [formGroup]="blogForm"  class="col-md-6 offset-md-3">-->
-<!--  <div class="form-group">-->
-<!--    <div id="exampleFormControlInput1" formControlName="title"></div>-->
-<!--  </div>-->
-<!--  <div class="form-group">-->
-<!--    <div  id="exampleFormControlTextarea1" formControlName="content"></div>-->
-<!--  </div>-->
-<!--&lt;!&ndash;  <input class="btn btn-primary" type="submit" value="Update">&ndash;&gt;-->
-<!--</form>-->
-
-
-
-<!--<ng-template #loggedOut>-->
-<!--  <strong>Please Login!!!</strong>-->
-<!--  <a class="btn btn-primary" href="auth/login">Login</a>-->
-<!--</ng-template>-->

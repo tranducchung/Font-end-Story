@@ -1,3 +1,8 @@
+<style>
+  .listControl a:hover{
+    background-color: pink;
+  }
+</style>
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -9,28 +14,29 @@
     <ul class="nav navbar-nav" routerLinkActive="active">
 
       <li *ngIf="authority != null" class="nav-item" >
-        <a class="nav-link" routerLink="home">Home</a>
+        <a class="nav-link" routerLink="home"><i class="fas fa-home"></i> Home</a>
       </li>
 
       <li class="nav-item dropdown" *ngIf="authority === 'user'">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          User Board
+          <i class="fas fa-user-cog"></i> User Board
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="user">Info User</a>
-          <a class="dropdown-item" routerLink="listBlog">My Blog</a>
-          <a class="dropdown-item" routerLink="addBlog">Post Blog</a>
+        <div class="dropdown-menu listControl" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="user"><i class="fas fa-info-circle"></i> Info User</a>
+          <a class="dropdown-item" routerLink="blogManagement"><i class="fas fa-list"></i> Blog Management</a>
+          <a class="dropdown-item" routerLink="addBlog"><i class="fas fa-feather-alt"></i> Post Blog</a>
+          <a class="dropdown-item" routerLink="listBlog"><i class="fab fa-blogger-b"></i> My Blog</a>
+          <a class="dropdown-item" type="button" (click)="logOut()"><i class="fas fa-sign-out-alt"></i> Logout</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="home">Something else here</a>
         </div>
       </li>
-
       <li *ngIf="authority === 'admin'" class="nav-item">
         <a class="nav-link" routerLink="admin">Admin Board</a>
       </li>
 
       <li *ngIf="authority != null" class="nav-item">
-        <button type="button" class="btn btn-outline-info" (click)="logOut()">Logout</button>
+        <button type="button" class="btn btn-outline-info" (click)="logOut()"><i class="fas fa-sign-out-alt"></i> Logout</button>
       </li>
     </ul>
   </div>
