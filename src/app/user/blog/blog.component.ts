@@ -12,6 +12,7 @@ export class BlogComponent implements OnInit {
   blogList: Blog[];
   info: any;
   indexOfShow = -1;
+  showButton = false;
 
   constructor(
     private postService: PostService,
@@ -28,7 +29,11 @@ export class BlogComponent implements OnInit {
     };
     this.postService.getBlogs().subscribe(next => (this.blogList = next), error => (this.blogList = []));
   }
+
   readMore(i) {
     this.indexOfShow = i;
+  }
+  showContent(enable: boolean) {
+    this.showButton = enable;
   }
 }
