@@ -9,10 +9,12 @@ import {HttpClientModule} from '@angular/common/http';
 import {BlogComponent} from './blog/blog.component';
 import {EditBlogComponent} from './edit-blog/edit-blog.component';
 import {PostBlogComponent} from './post-blog/post-blog.component';
+import {CKEditorModule} from 'ng2-ckeditor';
+import { DetailBlogComponent } from './detail-blog/detail-blog.component';
 
 
 @NgModule({
-  declarations: [UserComponent, BlogComponent, EditBlogComponent, PostBlogComponent],
+  declarations: [UserComponent, BlogComponent, EditBlogComponent, PostBlogComponent, DetailBlogComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
@@ -20,8 +22,9 @@ import {PostBlogComponent} from './post-blog/post-blog.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    CKEditorModule
   ],
-  exports: [UserComponent]
+  exports: [UserComponent, DetailBlogComponent]
 })
 export class UserModule {
 }

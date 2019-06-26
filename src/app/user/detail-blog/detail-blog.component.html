@@ -1,0 +1,75 @@
+<!--<div *ngIf="info.token; else loggedOut">-->
+
+<div class="container" style="height: auto">
+  <header class="row">
+  </header>
+  <div class="row" style="margin-top: 50px; font-family: inherit; font-style: italic">
+
+    <article class="col-sm-8">
+      <div [innerHTML]="blog.title"></div>
+<!--      <div class="btn-group" style="position: absolute;top: -11px;left: 715px">-->
+<!--        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--          ...-->
+<!--        </a>-->
+<!--        <div class="dropdown-menu">-->
+<!--          <a class="dropdown-item" [routerLink]="['/listBlog',blog.id,'edit']">Update Blog</a>-->
+<!--          <a class="dropdown-item" (click)="delete(blog.id)">Delete Blog</a>-->
+<!--          <a class="dropdown-item" href="#">Share</a>-->
+<!--          <div class="dropdown-divider"></div>-->
+<!--          <a class="dropdown-item" href="#">Separated link</a>-->
+<!--        </div>-->
+<!--      </div>-->
+      <div [innerHTML]="blog.content"></div>
+    </article>
+
+    <aside class="col-sm-4">
+      <div>
+        <h6>ABOUT ME</h6>
+        <hr>
+        <img
+          src="https://colorlib.com/activello/wp-content/uploads/sites/10/2012/03/photo-1437915015400-137312b61975-330x220.jpg"
+          width="100%">
+        <p style="margin-top: 15px">My name is Activello and I am an awesome WordPress blog theme for photography,
+          food, travel and other blogs. I was created by colorlib.</p>
+      </div>
+      <div style="margin-top: 30px">
+        <h6>FOLLOW ME</h6>
+        <hr>
+        <div style="margin-top: 25px; margin-left: 75px">
+          <a href="#" class="hover"><i class="fab fa-facebook-square" style="margin-left: 15px; zoom: 2"></i></a>
+          <a href="#" class="hover"><i class="fab fa-twitter " style="margin-left: 15px; zoom: 2 "></i></a>
+          <a href="#" class="hover"><i class="fab fa-google" style="margin-left: 15px; zoom: 2;color: red  "></i></a>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+  <hr style="margin-top: 60px;">
+  <footer class="panel panel-default" style="margin-top: 40px">
+    <div class="panel-heading text-center">
+      <a href="#" class="hover"><i class="fab fa-facebook-square" style="margin-left: 15px; zoom: 2"></i></a>
+      <a href="#" class="hover"><i class="fab fa-twitter " style="margin-left: 15px; zoom: 2 "></i></a>
+      <a href="#" class="hover"><i class="fab fa-google" style="margin-left: 15px; zoom: 2;color: red  "></i></a>
+    </div>
+    <p style="margin-top: 12px;margin-left: 380px">Activello. Theme by Colorlib Powered by WordPress</p>
+  </footer>
+  <hr style="margin-top: 60px;">
+</div>
+
+<!--<h2 class="text-center">Update Blog</h2>-->
+<!--<form [formGroup]="blogForm"  class="col-md-6 offset-md-3">-->
+<!--  <div class="form-group">-->
+<!--    <div id="exampleFormControlInput1" formControlName="title"></div>-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <div  id="exampleFormControlTextarea1" formControlName="content"></div>-->
+<!--  </div>-->
+<!--&lt;!&ndash;  <input class="btn btn-primary" type="submit" value="Update">&ndash;&gt;-->
+<!--</form>-->
+
+
+
+<!--<ng-template #loggedOut>-->
+<!--  <strong>Please Login!!!</strong>-->
+<!--  <a class="btn btn-primary" href="auth/login">Login</a>-->
+<!--</ng-template>-->
