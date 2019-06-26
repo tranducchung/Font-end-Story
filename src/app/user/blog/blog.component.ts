@@ -13,6 +13,9 @@ import {JwtResponse} from '../../auth/jwt-response';
 export class BlogComponent implements OnInit {
   blogList: Blog[];
   info: any;
+  showContent = false;
+  indexOfShow = -1;
+
   constructor(
     private postService: PostService,
     private tokenService: TokenService
@@ -33,5 +36,9 @@ export class BlogComponent implements OnInit {
     const blog = this.blogList[i];
     this.postService.deleteBlog(blog.id).subscribe(() =>
       this.blogList = this.blogList.filter(t => t.id !== blog.id));
+  }
+
+  readMore(i) {
+    this.indexOfShow = i;
   }
 }

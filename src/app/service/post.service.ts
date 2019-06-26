@@ -11,7 +11,7 @@ export class PostService {
   constructor(private http: HttpClient) { }
 
   getBlogs(): Observable<Blog[]> {
-    return this.http.get<Blog[]>(`${this.API_URL}/getall`);
+    return this.http.get<Blog[]>(`${this.API_URL}`);
   }
   addBlog(blog: Partial<Blog>): Observable<Blog> {
     return this.http.post<Blog>(this.API_URL, blog);

@@ -14,11 +14,11 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-  getUser(): Observable<string> {
-    return this.http.get(this.userUrl, {responseType: 'text'});
-  }
-
-  getAdmin(): Observable<string> {
-    return this.http.get(this.adminUrl, {responseType: 'text'});
-  }
+  // getUser(): Observable<string> {
+  //   return this.http.get(this.userUrl, {responseType: 'text'});
+  // }
+  //
+  // getAdmin(): Observable<string> {
+  //   return this.http.get(this.adminUrl, {responseType: 'text'});
+  // }
 }

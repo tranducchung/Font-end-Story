@@ -72,9 +72,18 @@
           <div class="content" style="text-align: center">
             <h3 [innerHTML]="blog.title"></h3>
             <h5>{{blog.date}} </h5>
+            <div *ngIf="i===indexOfShow">
 
-            <!--          <p style="margin-top: 15px"[innerHTML]="blog.content"></p>-->
-            <a [routerLink]="['/listBlog',blog.id,'edit']" class="btn btn-outline-success">Edit</a>
+              <div id="demo" class="collapse in">
+                <div [innerHTML]=blog.content></div>
+              </div>
+            </div>
+            <button (click)="readMore(i)" type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
+<!--                        <a [routerLink]="['/listBlog',blog.id,'edit']" class="btn btn-outline-success">Edit</a>-->
+<!--            <button class="btn btn-outline-success" *ngIf='showContent'-->
+<!--                    (click)='Readmore(false,i,blog.id)'>Hide Images</button>-->
+<!--            <button class="btn btn-outline-success" *ngIf='!showContent'-->
+<!--                    (click)='Readmore(true,i,blog.id)'>Hide Images</button>-->
           </div>
           <hr style="margin-top: 60px">
         </div>
