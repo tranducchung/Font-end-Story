@@ -11,10 +11,11 @@ import {EditBlogComponent} from './edit-blog/edit-blog.component';
 import {PostBlogComponent} from './post-blog/post-blog.component';
 import {CKEditorModule} from 'ng2-ckeditor';
 import { DetailBlogComponent } from './detail-blog/detail-blog.component';
+import { BlogManagementComponent } from './blog-management/blog-management.component';
 
 
 @NgModule({
-  declarations: [UserComponent, BlogComponent, EditBlogComponent, PostBlogComponent, DetailBlogComponent],
+  declarations: [UserComponent, BlogComponent, EditBlogComponent, PostBlogComponent, DetailBlogComponent, BlogManagementComponent],
   imports: [
     CommonModule,
     UserRoutingModule,

@@ -11,7 +11,6 @@ import {TokenService} from '../../auth/token.service';
 export class BlogComponent implements OnInit {
   blogList: Blog[];
   info: any;
-  showContent = false;
   indexOfShow = -1;
 
   constructor(
@@ -29,10 +28,6 @@ export class BlogComponent implements OnInit {
     };
     this.postService.getBlogs().subscribe(next => (this.blogList = next), error => (this.blogList = []));
   }
-
-
-
-
   readMore(i) {
     this.indexOfShow = i;
   }

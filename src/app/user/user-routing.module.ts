@@ -4,6 +4,7 @@ import {UserComponent} from './user.component';
 import {BlogComponent} from './blog/blog.component';
 import {EditBlogComponent} from './edit-blog/edit-blog.component';
 import {DetailBlogComponent} from './detail-blog/detail-blog.component';
+import {BlogManagementComponent} from './blog-management/blog-management.component';
 
 const routes: Routes = [
   {
@@ -11,12 +12,16 @@ const routes: Routes = [
     component: UserComponent
   },
   {
-    path: 'listBlog/:id/edit',
+    path: 'blogManagement/:id/edit',
     component: EditBlogComponent
   },
   {
     path: 'listBlog/:id/detail',
     component: DetailBlogComponent
+  },
+  {
+    path: 'blogManagement',
+    component: BlogManagementComponent
   }
 ];
 
