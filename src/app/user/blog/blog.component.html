@@ -72,10 +72,11 @@
           <div class="content" style="text-align: center">
             <h3 [innerHTML]="blog.title"></h3>
             <h5>{{blog.date}} </h5>
+            <p style="margin-top: 15px" [innerHTML]="blog.content"></p>
 
-            <!--          <p style="margin-top: 15px"[innerHTML]="blog.content"></p>-->
-            <a [routerLink]="['/listBlog',blog.id,'edit']" class="btn btn-outline-success">Edit</a>
-          </div>
+<!--            <button *ngIf="showContent" (click)="showContents(false)"class="btn btn-outline-success">Hidden Content</button>-->
+<!--            <button *ngIf="!showContent" (click)="showContents(true)"class="btn btn-outline-success">Read more</button>-->
+     </div>
           <hr style="margin-top: 60px">
         </div>
       </article>
