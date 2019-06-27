@@ -1,4 +1,10 @@
+<style>
+  .hello h1{
+    font-size: 1.5rem;
+  }
+</style>
 <div *ngIf="info.token; else loggedOut">
+
   <div class="container" style="height: auto">
     <header class="row">
     </header>
@@ -15,9 +21,9 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let blog of listBlog; index as i">
+          <tr *ngFor="let blog of listBlog; index as i" class="hello">
             <th scope="row">{{i+1}}</th>
-            <td [innerHTML]="blog.title"></td>
+            <td><a  [innerHTML]="blog.title" style="text-decoration: none;font-size: 25px;"></a></td>
             <td><button type="button" class="btn btn-warning" [routerLink]="['/blogManagement',blog.id,'edit']"><i class="fas fa-edit"></i></button></td>
             <td><button type="button" class="btn btn-danger" (click)="delete(i)"><i class="fas fa-trash-alt"></i></button></td>
           </tr>

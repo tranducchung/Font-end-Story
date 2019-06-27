@@ -5,6 +5,7 @@ import {BlogComponent} from './blog/blog.component';
 import {EditBlogComponent} from './edit-blog/edit-blog.component';
 import {DetailBlogComponent} from './detail-blog/detail-blog.component';
 import {BlogManagementComponent} from './blog-management/blog-management.component';
+import {BlogShareComponent} from './blog-share/blog-share.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'blogManagement',
     component: BlogManagementComponent
+  },
+  {
+    path: 'share/:id',
+    component: BlogShareComponent
   }
 ];
 
