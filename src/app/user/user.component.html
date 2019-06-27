@@ -1,0 +1,6 @@
+<div *ngIf="info.token; else loggedOut">
+</div>
+<ng-template #loggedOut>
+  <strong>Please Login!!!</strong>
+  <a class="btn btn-primary" href="auth/login">Login</a>
+</ng-template>

@@ -14,18 +14,6 @@ import {TokenService} from '../../auth/token.service';
 
 
 export class PostBlogComponent implements OnInit {
-  // public Editor = ClassicEditor;
-
-  //   .create(document.querySelector('#exampleFormControlTextarea1'), {
-  //   plugins: [CKFinder],
-  //   toolbar: ['imageUpload'],
-  //   ckfinder: {
-  //     uploadUrl: 'http://localhost:4200/assets/Image/'
-  //   }
-  // })
-  //   .then()
-  //   .catch();
-
 
   blogForm: FormGroup;
   blog: Blog;

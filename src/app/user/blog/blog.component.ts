@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Blog} from '../ipost';
 import {PostService} from '../../service/post.service';
-import {Token} from '@angular/compiler';
 import {TokenService} from '../../auth/token.service';
-import {JwtResponse} from '../../auth/jwt-response';
 
 @Component({
   selector: 'app-blog',
@@ -13,6 +11,9 @@ import {JwtResponse} from '../../auth/jwt-response';
 export class BlogComponent implements OnInit {
   blogList: Blog[];
   info: any;
+  indexOfShow = -1;
+  showButton = false;
+
   constructor(
     private postService: PostService,
     private tokenService: TokenService
@@ -29,9 +30,10 @@ export class BlogComponent implements OnInit {
     this.postService.getBlogs().subscribe(next => (this.blogList = next), error => (this.blogList = []));
   }
 
-  delete(i) {
-    const blog = this.blogList[i];
-    this.postService.deleteBlog(blog.id).subscribe(() =>
-      this.blogList = this.blogList.filter(t => t.id !== blog.id));
+  readMore(i) {
+    this.indexOfShow = i;
+  }
+  showContent(enable: boolean) {
+    this.showButton = enable;
   }
 }

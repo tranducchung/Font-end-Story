@@ -8,8 +8,9 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {UserModule} from './user/user.module';
 import {httpInterceptorProviders} from './auth/auth-interceptor';
+import {UserModule} from './user/user.module';
+import { UploadFileComponent } from './service/upload-file/upload-file.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import {httpInterceptorProviders} from './auth/auth-interceptor';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-
+    UploadFileComponent,
   ],
   imports: [
     BrowserModule,

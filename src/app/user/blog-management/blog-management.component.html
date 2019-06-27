@@ -1,0 +1,72 @@
+<style>
+  .hello h1{
+    font-size: 1.5rem;
+  }
+</style>
+<div *ngIf="info.token; else loggedOut">
+
+  <div class="container" style="height: auto">
+    <header class="row">
+    </header>
+    <div class="row" style="margin-top: 50px; font-family: inherit; font-style: italic">
+      <article class="col-sm-8">
+        <button type="button" routerLink="/addBlog" class="btn btn-success"><i class="fas fa-feather-alt"></i> Write Blog</button>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">STT</th>
+            <th scope="col">Title</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let blog of listBlog; index as i" class="hello">
+            <th scope="row">{{i+1}}</th>
+            <td><a  [innerHTML]="blog.title" style="text-decoration: none;font-size: 25px;"></a></td>
+            <td><button type="button" class="btn btn-warning" [routerLink]="['/blogManagement',blog.id,'edit']"><i class="fas fa-edit"></i></button></td>
+            <td><button type="button" class="btn btn-danger" (click)="delete(i)"><i class="fas fa-trash-alt"></i></button></td>
+          </tr>
+          </tbody>
+        </table>
+      </article>
+      <aside class="col-sm-4">
+        <div>
+          <h6>ABOUT ME</h6>
+          <hr>
+          <img
+            src="https://colorlib.com/activello/wp-content/uploads/sites/10/2012/03/photo-1437915015400-137312b61975-330x220.jpg"
+            width="100%">
+          <p style="margin-top: 15px">My name is Activello and I am an awesome WordPress blog theme for photography,
+            food, travel and other blogs. I was created by colorlib.</p>
+        </div>
+        <div style="margin-top: 30px">
+          <h6>FOLLOW ME</h6>
+          <hr>
+          <div style="margin-top: 25px; margin-left: 75px">
+            <a href="#" class="hover"><i class="fab fa-facebook-square" style="margin-left: 15px; zoom: 2"></i></a>
+            <a href="#" class="hover"><i class="fab fa-twitter " style="margin-left: 15px; zoom: 2 "></i></a>
+            <a href="#" class="hover"><i class="fab fa-google" style="margin-left: 15px; zoom: 2;color: red  "></i></a>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <hr style="margin-top: 60px;">
+    <footer class="panel panel-default" style="margin-top: 40px">
+      <div class="panel-heading text-center">
+        <a href="#" class="hover"><i class="fab fa-facebook-square" style="margin-left: 15px; zoom: 2"></i></a>
+        <a href="#" class="hover"><i class="fab fa-twitter " style="margin-left: 15px; zoom: 2 "></i></a>
+        <a href="#" class="hover"><i class="fab fa-google" style="margin-left: 15px; zoom: 2;color: red  "></i></a>
+      </div>
+      <p style="margin-top: 12px;margin-left: 380px">Activello. Theme by Colorlib Powered by WordPress</p>
+    </footer>
+    <hr style="margin-top: 60px;">
+  </div>
+</div>
+<ng-template #loggedOut>
+  <strong>Please Login!!!</strong>
+  <a class="btn btn-primary" href="auth/login">Login</a>
+</ng-template>
+
+
+

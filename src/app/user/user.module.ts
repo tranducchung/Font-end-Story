@@ -10,11 +10,25 @@ import {BlogComponent} from './blog/blog.component';
 import {EditBlogComponent} from './edit-blog/edit-blog.component';
 import {PostBlogComponent} from './post-blog/post-blog.component';
 import {CKEditorModule} from 'ng2-ckeditor';
+<<<<<<< HEAD
 
+=======
+import { DetailBlogComponent } from './detail-blog/detail-blog.component';
+import { BlogManagementComponent } from './blog-management/blog-management.component';
+import { BlogShareComponent } from './blog-share/blog-share.component';
+>>>>>>> 2c72511ea56c8803958af9c69f51239c5a9f97d8
 
 
 @NgModule({
-  declarations: [UserComponent, BlogComponent, EditBlogComponent, PostBlogComponent],
+  declarations: [
+    UserComponent,
+    BlogComponent,
+    EditBlogComponent,
+    PostBlogComponent,
+    DetailBlogComponent,
+    BlogManagementComponent,
+    BlogShareComponent,
+  ],
   imports: [
     CommonModule,
     UserRoutingModule,
@@ -23,7 +37,7 @@ import {CKEditorModule} from 'ng2-ckeditor';
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  exports: [UserComponent]
+  exports: [UserComponent, DetailBlogComponent]
 })
 export class UserModule {
 }

@@ -1,34 +1,4 @@
-<!--<div *ngIf="info.token; else loggedOut">-->
-
-<!--<table class="table table-striped col-md-10 offset-md-1">-->
-<!--  <thead>-->
-<!--  <tr>-->
-<!--    <th scope="col">STT</th>-->
-<!--    <th scope="col">Title</th>-->
-<!--    <th scope="col">Content</th>-->
-<!--    <th scope="col"></th>-->
-<!--    <th scope="col"></th>-->
-<!--  </tr>-->
-<!--  </thead>-->
-<!--  <tbody>-->
-<!--  <tr *ngFor="let blog of blogList; index as i">-->
-<!--    <th scope="row">{{i+1}}</th>-->
-<!--    <td>{{blog.title}}</td>-->
-<!--    <td [innerHTML]="blog.content"></td>-->
-<!--    <td><a [routerLink]="['/listBlog',blog.id,'edit']">Edit</a></td>-->
-<!--    <td><a (click)="delete(i)">Xóa</a></td>-->
-<!--  </tr>-->
-<!--  </tbody>-->
-<!--</table>-->
-<!--</div>-->
-
-<!--<ng-template #loggedOut>-->
-<!--  <strong>Please Login!!!</strong>-->
-<!--  <a class="btn btn-primary" href="auth/login">Login</a>-->
-<!--</ng-template>-->
-
 <div *ngIf="info.token; else loggedOut">
-
   <div class="container" style="height: auto">
     <header class="row">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -63,23 +33,34 @@
         </a>
       </div>
     </header>
-
-
     <div class="row" style="margin-top: 50px; font-family: inherit; font-style: italic">
-
       <article class="col-sm-8">
-        <div *ngFor="let blog of blogList; index as i">
+        <div *ngFor="let blog of blogList; index as i;">
           <div class="content" style="text-align: center">
-            <h3 [innerHTML]="blog.title"></h3>
-            <h5>{{blog.date}} </h5>
-
-            <!--          <p style="margin-top: 15px"[innerHTML]="blog.content"></p>-->
-            <a [routerLink]="['/listBlog',blog.id,'edit']" class="btn btn-outline-success">Edit</a>
+            <a [routerLink]="['/listBlog',blog.id,'detail']" [innerHTML]="blog.title"
+               style="text-decoration: none;font-size: 25px; font-weight: 700"></a>
+            <img *ngIf="(i+1)%2===0"
+                 src="https://hinhanhdep.net/wp-content/uploads/2017/12/hinh-anh-cuon-sach-dep-5.jpg"
+                 style="width: 100%;height: 455px">
+            <img *ngIf="(i+1)%2!==0" src="http://i.imgur.com/qAdatTl.jpg" style="width: 100%;height: 455px">
+            <h5>{{blog.date}}</h5>
+            <div *ngIf="i===indexOfShow">
+              <div id="demo" class="collapse in">
+                <div [innerHTML]=blog.content></div>
+              </div>
+            </div>
+            <button (click)="readMore(i); showContent(true)" *ngIf="!showButton" type="button"
+                    class="btn btn-outline-success" data-toggle="collapse" data-target="#demo">
+              Read More
+            </button>
+            <button (click)=" showContent(false)" *ngIf="showButton" type="button" class="btn btn-outline-success"
+                    data-toggle="collapse" data-target="#demo">
+              Close Blog
+            </button>
+            <hr style="margin-top: 60px">
           </div>
-          <hr style="margin-top: 60px">
         </div>
       </article>
-
       <aside class="col-sm-4">
         <div>
           <h6>ABOUT ME</h6>
@@ -105,8 +86,10 @@
     <hr style="margin-top: 60px;">
     <footer class="panel panel-default" style="margin-top: 40px">
       <div class="panel-heading text-center">
-        <a href="#" class="hover"><i class="fab fa-facebook-square" style="margin-left: 15px; zoom: 2"></i></a>
-        <a href="#" class="hover"><i class="fab fa-twitter " style="margin-left: 15px; zoom: 2 "></i></a>
+        <a href="https://www.facebook.com/nghichvuathoi.vhtm" class="hover"><i class="fab fa-facebook-square"
+                                                                               style="margin-left: 15px; zoom: 2"></i></a>
+        <a href="https://thegioicacuocbongda.com/wp-content/uploads/2018/11/anh-gai-xinh-3.jpg" class="hover"><i
+          class="fab fa-twitter " style="margin-left: 15px; zoom: 2 "></i></a>
         <a href="#" class="hover"><i class="fab fa-google" style="margin-left: 15px; zoom: 2;color: red  "></i></a>
       </div>
       <p style="margin-top: 12px;margin-left: 380px">Activello. Theme by Colorlib Powered by WordPress</p>
@@ -114,7 +97,6 @@
     <hr style="margin-top: 60px;">
   </div>
 </div>
-
 
 <ng-template #loggedOut>
   <strong>Please Login!!!</strong>
