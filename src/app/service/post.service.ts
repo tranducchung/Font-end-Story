@@ -7,15 +7,14 @@ import {Blog} from '../user/ipost';
   providedIn: 'root'
 })
 export class PostService {
-  private API_URL = 'http://localhost:8080/api/user';
   private API_URL_BLOG = 'http://localhost:8080/api/blogs';
   constructor(private http: HttpClient) { }
 
   getBlogs(): Observable<Blog[]> {
-    return this.http.get<Blog[]>(`${this.API_URL}/getall`);
+    return this.http.get<Blog[]>(`${this.API_URL_BLOG}/getall`);
   }
   addBlog(blog: Partial<Blog>): Observable<Blog> {
-    return this.http.post<Blog>(this.API_URL_BLOG, blog);
+    return this.http.post<Blog>(`${this.API_URL_BLOG}/create`, blog);
   }
   deleteBlog(id: number): Observable<Blog> {
     return this.http.delete<Blog>(`${this.API_URL_BLOG}/${id}`);

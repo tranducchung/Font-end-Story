@@ -10,7 +10,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {httpInterceptorProviders} from './auth/auth-interceptor';
 import {UserModule} from './user/user.module';
-import { UploadFileComponent } from './service/upload-file/upload-file.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,6 @@ import { UploadFileComponent } from './service/upload-file/upload-file.component
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    UploadFileComponent,
   ],
   imports: [
     BrowserModule,
