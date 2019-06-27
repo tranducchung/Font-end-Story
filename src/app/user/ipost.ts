@@ -24,3 +24,8 @@ export interface User {
     roles: Roles;
     active: number;
 }
+export interface Img {
+  id: number;
+  srcImg: string;
+  user: User;
+}
