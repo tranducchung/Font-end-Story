@@ -15,7 +15,14 @@ import { BlogManagementComponent } from './blog-management/blog-management.compo
 
 
 @NgModule({
-  declarations: [UserComponent, BlogComponent, EditBlogComponent, PostBlogComponent, DetailBlogComponent, BlogManagementComponent],
+  declarations: [
+    UserComponent,
+    BlogComponent,
+    EditBlogComponent,
+    PostBlogComponent,
+    DetailBlogComponent,
+    BlogManagementComponent,
+  ],
   imports: [
     CommonModule,
     UserRoutingModule,
@@ -23,7 +30,7 @@ import { BlogManagementComponent } from './blog-management/blog-management.compo
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    CKEditorModule
+    CKEditorModule,
   ],
   exports: [UserComponent, DetailBlogComponent]
 })
