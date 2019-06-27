@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {UploadFileService} from '../../service/upload-file.service';
 import {HttpEventType, HttpResponse} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Img} from '../ipost';
 
 @Component({
   selector: 'app-form-upload',
@@ -10,9 +12,12 @@ import {HttpEventType, HttpResponse} from '@angular/common/http';
 export class FormUploadComponent implements OnInit {
   selectedFiles: FileList;
   currentFileUpload: File;
-  progress: { percentage: number } = { percentage: 0 };
+  progress: { percentage: number } = {percentage: 0};
+  showFile = false;
+  fileUploads: Observable<Img[]>;
 
-  constructor(private uploadService: UploadFileService) { }
+  constructor(private uploadService: UploadFileService) {
+  }
 
   ngOnInit() {
   }
@@ -42,4 +47,11 @@ export class FormUploadComponent implements OnInit {
     this.selectedFiles = undefined
   }
 
+  showFiles(enable: boolean) {
+    this.showFile = enable;
+
+    if (enable) {
+      this.fileUploads = this.uploadService.getAllFile();
+    }
+  }
 }
