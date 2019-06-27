@@ -15,6 +15,17 @@
           <a [innerHTML]="blog.content"></a>
         </div>
       </div>
+<!--      <button type="button" class="btn btn-outline-info" routerLink="/share">Share</button>-->
+      <div class="btn-group">
+        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Share
+        </button>
+        <div class="dropdown-menu">
+          <div *ngFor="let user of listUser,index as i">
+            <a class="dropdown-item" [routerLink]="['/share',user.id]">{{user.username}}</a>
+          </div>
+        </div>
+      </div>
     </article>
     <aside class="col-sm-4">
       <div>
@@ -46,6 +57,7 @@
   </footer>
   <hr style="margin-top: 60px;">
 </div>
+
 
 <!--<h2 class="text-center">Update Blog</h2>-->
 <!--<form [formGroup]="blogForm"  class="col-md-6 offset-md-3">-->

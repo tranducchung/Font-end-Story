@@ -12,6 +12,7 @@ import {PostBlogComponent} from './post-blog/post-blog.component';
 import {CKEditorModule} from 'ng2-ckeditor';
 import { DetailBlogComponent } from './detail-blog/detail-blog.component';
 import { BlogManagementComponent } from './blog-management/blog-management.component';
+import { BlogShareComponent } from './blog-share/blog-share.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { BlogManagementComponent } from './blog-management/blog-management.compo
     PostBlogComponent,
     DetailBlogComponent,
     BlogManagementComponent,
+    BlogShareComponent,
   ],
   imports: [
     CommonModule,

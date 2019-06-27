@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Blog} from '../ipost';
+import {Blog, User} from '../ipost';
 import {PostService} from '../../service/post.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UserService} from '../../service/user.service';
 
 @Component({
   selector: 'app-detail-blog',
@@ -11,9 +12,11 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class DetailBlogComponent implements OnInit {
   blog: Blog;
+  listUser: User[];
   constructor(
     private postService: PostService,
     private route: ActivatedRoute,
+    private userService: UserService
   ) {}
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -24,5 +27,6 @@ export class DetailBlogComponent implements OnInit {
       console.log(error);
       this.blog = null;
     } );
+    this.userService.getUsers().subscribe(next => (this.listUser = next), error => (this.listUser = []) );
   }
 }
