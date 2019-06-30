@@ -7,15 +7,18 @@ import {User} from '../user/ipost';
   providedIn: 'root'
 })
 export class UserService {
-  private API_LISTUSER = 'http://localhost:8080/api/listUser';
-  private API_USER = 'http://localhost:8080/api/user';
+  private API_USER = 'http://localhost:8080//api/users';
 
   constructor(private http: HttpClient) {
   }
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.API_LISTUSER);
+    return this.http.get<User[]>(this.API_USER);
   }
   getUserById(id: number): Observable<User> {
     return this.http.get<User>(`${this.API_USER}/${id}`);
   }
+  shareBlog(idUser: number, idBlog: number): Observable<any> {
+    return this.http.get<any>(`${this.API_USER}/shareToUser/${idUser}/blogs/${idBlog}`);
+  }
 }
+
