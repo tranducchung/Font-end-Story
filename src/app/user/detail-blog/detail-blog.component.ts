@@ -22,11 +22,15 @@ export class DetailBlogComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.postService.getBlogById(id).subscribe( next => {
       this.blog = next;
-      // this.blogForm.patchValue(this.blog);
     }, error => {
       console.log(error);
       this.blog = null;
     } );
     this.userService.getUsers().subscribe(next => (this.listUser = next), error => (this.listUser = []) );
+  }
+  shareBlog(idUser: number, idBlog: number) {
+    console.log(idUser);
+    console.log(idBlog);
+    this.userService.shareBlog(idUser, idBlog).subscribe(next => console.log('aaa' + next), error => console.log(error) );
   }
 }
