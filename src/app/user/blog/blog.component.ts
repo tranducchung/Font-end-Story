@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Blog} from '../ipost';
 import {PostService} from '../../service/post.service';
 import {TokenService} from '../../auth/token.service';
+import {DomSanitizer, SafeHtml, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-blog',
@@ -13,11 +15,18 @@ export class BlogComponent implements OnInit {
   info: any;
   indexOfShow = -1;
   showButton = false;
+  private video: SafeUrl =
+    '<iframe width="560" height="315" src="https://www.youtube.com/embed/XRlPKv4yxmg" ' +
+    'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 
   constructor(
     private postService: PostService,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private sanitizer: DomSanitizer
   ) {
+    if (typeof this.video === 'string') {
+      this.video = this.sanitizer.bypassSecurityTrustHtml(this.video);
+    }
   }
 
   ngOnInit() {
@@ -27,12 +36,14 @@ export class BlogComponent implements OnInit {
       email: this.tokenService.getEmail(),
       authorities: this.tokenService.getAuthor()
     };
+
     this.postService.getBlogs().subscribe(next => (this.blogList = next), error => (this.blogList = []));
   }
 
   readMore(i) {
     this.indexOfShow = i;
   }
+
   showContent(enable: boolean) {
     this.showButton = enable;
   }

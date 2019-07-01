@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {PostBlogComponent} from './user/post-blog/post-blog.component';
 import {BlogComponent} from './user/blog/blog.component';
+import {SocketComponent} from './socket/socket.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'listBlog',
     component: BlogComponent
+  },
+  {
+    path: 'socket',
+    component: SocketComponent
   }
 ];
 
@@ -38,4 +43,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

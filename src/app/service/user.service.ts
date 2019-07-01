@@ -7,6 +7,7 @@ import {User} from '../user/ipost';
   providedIn: 'root'
 })
 export class UserService {
+
   private API_USER = 'http://localhost:8080//api/users';
 
   constructor(private http: HttpClient) {

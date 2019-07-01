@@ -1,4 +1,5 @@
 <div *ngIf="info.token; else loggedOut">
+  {{info.username}}
 </div>
 <ng-template #loggedOut>
   <strong>Please Login!!!</strong>

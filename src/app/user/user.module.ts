@@ -10,10 +10,10 @@ import {BlogComponent} from './blog/blog.component';
 import {EditBlogComponent} from './edit-blog/edit-blog.component';
 import {PostBlogComponent} from './post-blog/post-blog.component';
 import {CKEditorModule} from 'ng2-ckeditor';
-import { DetailBlogComponent } from './detail-blog/detail-blog.component';
-import { BlogManagementComponent } from './blog-management/blog-management.component';
-import { BlogShareComponent } from './blog-share/blog-share.component';
-import { FormUploadComponent } from './form-upload/form-upload.component';
+import {DetailBlogComponent} from './detail-blog/detail-blog.component';
+import {BlogManagementComponent} from './blog-management/blog-management.component';
+import {BlogShareComponent} from './blog-share/blog-share.component';
+import {FormUploadComponent} from './form-upload/form-upload.component';
 
 
 @NgModule({
@@ -38,5 +38,6 @@ import { FormUploadComponent } from './form-upload/form-upload.component';
   ],
   exports: [UserComponent, DetailBlogComponent]
 })
+
 export class UserModule {
 }

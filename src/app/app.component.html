@@ -12,15 +12,18 @@
       </div>
     </div>
     <ul class="nav navbar-nav" routerLinkActive="active">
-
       <li *ngIf="authority != null" class="nav-item" >
-        <a class="nav-link" routerLink="home"><i class="fas fa-home"></i> Home</a>
+        <a class="nav-link" routerLink="home"><i class="fa fa-home"></i> Home</a>
+      </li>
+      <li *ngIf="authority != null" class="nav-item" >
+        <a class="nav-link" routerLink="socket"><i class="fa fa-envelope-open"></i> Messenger</a>
       </li>
 
       <li class="nav-item dropdown" *ngIf="authority === 'user'">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user-cog"></i> User Board
         </a>
+        <span>  </span>
         <div class="dropdown-menu listControl" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" routerLink="user"><i class="fas fa-info-circle"></i> Info User</a>
           <a class="dropdown-item" routerLink="blogManagement"><i class="fas fa-list"></i> Blog Management</a>
@@ -42,6 +45,7 @@
     </ul>
   </div>
 </nav>
+
 <router-outlet></router-outlet>
 
 

@@ -6,7 +6,7 @@ export interface Blog {
     id: number;
     title: string;
     content: string;
-    date: Date;
+    date: number;
     user: User;
 }
 
@@ -24,6 +24,7 @@ export interface User {
     roles: Roles;
     active: number;
 }
+
 export interface Img {
   id: number;
   srcImg: string;
