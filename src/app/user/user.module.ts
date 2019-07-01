@@ -10,11 +10,11 @@ import {BlogComponent} from './blog/blog.component';
 import {EditBlogComponent} from './edit-blog/edit-blog.component';
 import {PostBlogComponent} from './post-blog/post-blog.component';
 import {CKEditorModule} from 'ng2-ckeditor';
-
 import {DetailBlogComponent} from './detail-blog/detail-blog.component';
 import {BlogManagementComponent} from './blog-management/blog-management.component';
 import {BlogShareComponent} from './blog-share/blog-share.component';
-import {ToastrModule} from 'ngx-toastr';
+import {FormUploadComponent} from './form-upload/form-upload.component';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +25,7 @@ import {ToastrModule} from 'ngx-toastr';
     DetailBlogComponent,
     BlogManagementComponent,
     BlogShareComponent,
+    FormUploadComponent,
   ],
   imports: [
     CommonModule,

@@ -25,3 +25,8 @@ export interface User {
     active: number;
 }
 
+export interface Img {
+  id: number;
+  srcImg: string;
+  user: User;
+}

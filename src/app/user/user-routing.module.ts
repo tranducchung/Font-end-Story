@@ -5,6 +5,7 @@ import {EditBlogComponent} from './edit-blog/edit-blog.component';
 import {DetailBlogComponent} from './detail-blog/detail-blog.component';
 import {BlogManagementComponent} from './blog-management/blog-management.component';
 import {BlogShareComponent} from './blog-share/blog-share.component';
+import {FormUploadComponent} from './form-upload/form-upload.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'share/:id',
     component: BlogShareComponent
+  },
+  {
+    path: 'upload',
+    component: FormUploadComponent
   }
 ];
 

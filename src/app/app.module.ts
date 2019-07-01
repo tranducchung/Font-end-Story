@@ -10,6 +10,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {httpInterceptorProviders} from './auth/auth-interceptor';
 import {UserModule} from './user/user.module';
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SocketComponent} from './socket/socket.component';
 import {ToastrModule} from 'ngx-toastr';

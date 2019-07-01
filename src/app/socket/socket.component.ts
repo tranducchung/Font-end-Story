@@ -48,7 +48,7 @@ export class SocketComponent implements OnInit {
 
   sendMessageUsingSocket() {
     if (this.form.valid) {
-      const message: Message = {message: this.form.value.message, fromId: this.userForm.value.fromId, toId: this.userForm.value.toId};
+      const message: Message = {message: this.form.value.message, fromId : this.userForm.value.fromId, toId: this.userForm.value.toId};
       this.stompClient.send('/socket-subscriber/send/message', {}, JSON.stringify(message));
     }
   }
