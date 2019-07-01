@@ -22,7 +22,7 @@
         </button>
         <div class="dropdown-menu">
           <div *ngFor="let user of listUser,index as i">
-            <a class="dropdown-item" [routerLink]="['/share',user.id]">{{user.username}}</a>
+            <button class="dropdown-item" (click)="shareBlog(user.id, blog.id)">{{user.username}}</button>
           </div>
         </div>
       </div>
