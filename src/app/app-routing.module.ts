@@ -5,6 +5,7 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {PostBlogComponent} from './user/post-blog/post-blog.component';
 import {BlogComponent} from './user/blog/blog.component';
+import {NotificationComponent} from './user/notification/notification.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'listBlog',
     component: BlogComponent
+  },
+  {
+    path: 'notification',
+    component: NotificationComponent
   }
 ];
 

@@ -14,6 +14,8 @@ import { DetailBlogComponent } from './detail-blog/detail-blog.component';
 import { BlogManagementComponent } from './blog-management/blog-management.component';
 import { BlogShareComponent } from './blog-share/blog-share.component';
 import { FormUploadComponent } from './form-upload/form-upload.component';
+import { NotificationComponent } from './notification/notification.component';
+import { DetailBlogShareComponent } from './detail-blog-share/detail-blog-share.component';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { FormUploadComponent } from './form-upload/form-upload.component';
     BlogManagementComponent,
     BlogShareComponent,
     FormUploadComponent,
+    NotificationComponent,
+    DetailBlogShareComponent,
   ],
   imports: [
     CommonModule,

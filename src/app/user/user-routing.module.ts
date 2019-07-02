@@ -7,6 +7,7 @@ import {DetailBlogComponent} from './detail-blog/detail-blog.component';
 import {BlogManagementComponent} from './blog-management/blog-management.component';
 import {BlogShareComponent} from './blog-share/blog-share.component';
 import {FormUploadComponent} from './form-upload/form-upload.component';
+import {DetailBlogShareComponent} from './detail-blog-share/detail-blog-share.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'upload',
     component: FormUploadComponent
+  },
+  {
+    path: 'notification/:idUser/blog/:idBlog',
+    component: DetailBlogShareComponent
   }
 ];
 

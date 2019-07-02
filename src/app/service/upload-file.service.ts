@@ -7,7 +7,7 @@ import {Img} from '../user/ipost';
   providedIn: 'root'
 })
 export class UploadFileService {
-  private API_UPLOAD = 'http://localhost:8080//api/upload';
+  private API_UPLOAD = 'http://localhost:8080/api/upload';
   constructor(private http: HttpClient) {}
   pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
     const formdata: FormData = new FormData();

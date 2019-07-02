@@ -17,28 +17,33 @@ export class BlogManagementComponent implements OnInit {
     private postService: PostService,
     private router: Router,
     private tokenService: TokenService
-
-) {}
-
-ngOnInit() {
-  this.postService.getBlogs().subscribe(next =>
-    (this.listBlog = next), error => (this.listBlog = []));
-  this.info = {
-    token: this.tokenService.getToken(),
-    username: this.tokenService.getUsername(),
-    email: this.tokenService.getEmail(),
-    authorities: this.tokenService.getAuthor()
-  };
-}
-delete(i) {
-  const r = confirm('Do you want delete this blog?');
-  if (r) {
-    const blog = this.listBlog[i];
-    this.postService.deleteBlog(blog.id).subscribe(() => {
-      this.postService.getBlogs().subscribe(next => {
-        this.listBlog = next;
-      });
-    }, error => console.log(error));
+  ) {
   }
-}
+
+  ngOnInit() {
+    this.postService.getBlogs().subscribe(next =>
+      (this.listBlog = next), error => (this.listBlog = []));
+    this.info = {
+      token: this.tokenService.getToken(),
+      username: this.tokenService.getUsername(),
+      email: this.tokenService.getEmail(),
+      authorities: this.tokenService.getAuthor()
+    };
+  }
+
+  delete(i) {
+    const r = confirm('Do you want delete this blog?');
+    if (r) {
+      const blog = this.listBlog[i];
+      this.postService.deleteBlog(blog.id).subscribe(() => {
+        this.postService.getBlogs().subscribe(next => {
+          this.listBlog = next;
+        }, err => {
+          if (err.status === 404) {
+            this.listBlog = null;
+          }
+        });
+      }, error => console.log(error));
+    }
+  }
 }

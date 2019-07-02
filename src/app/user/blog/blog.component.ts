@@ -25,7 +25,7 @@ export class BlogComponent implements OnInit {
       token: this.tokenService.getToken(),
       username: this.tokenService.getUsername(),
       email: this.tokenService.getEmail(),
-      authorities: this.tokenService.getAuthor()
+      authorities: this.tokenService.getAuthor(),
     };
     this.postService.getBlogs().subscribe(next => (this.blogList = next), error => (this.blogList = []));
   }

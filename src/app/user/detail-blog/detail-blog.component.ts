@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {Blog, User} from '../ipost';
 import {PostService} from '../../service/post.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../service/user.service';
 
 @Component({
@@ -33,4 +32,7 @@ export class DetailBlogComponent implements OnInit {
     console.log(idBlog);
     this.userService.shareBlog(idUser, idBlog).subscribe(next => console.log('aaa' + next), error => console.log(error) );
   }
+  // onClick() {
+  //   document.getElementById('demo').innerHTML = this.video;
+  // }
 }
