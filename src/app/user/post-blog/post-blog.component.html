@@ -4,7 +4,7 @@
 
   <div class="form-group">
     <label for="title">Title</label>
-    <ckeditor id="title" formControlName="title"></ckeditor>
+    <input type="text" class="form-control" id="title" formControlName="title">
   </div>
   <div *ngIf="blogForm.get('title').invalid && blogForm.get('title').touched" style="color: red">
     The title section must not be blank and have a minimum length of 2
@@ -12,13 +12,16 @@
 
   <div class="form-group">
     <label for="content">Content</label>
-<!--    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="content"></textarea>-->
     <ckeditor  formControlName="content" id="content" class="content"></ckeditor>
   </div>
   <div *ngIf="blogForm.get('content').invalid && blogForm.get('content').touched" style="color: red">
     The content section must not be blank and have a minimum length of 2
   </div>
 
+<!--  <div class="form-group">-->
+<!--    <label for="video">Input Iframe</label>-->
+<!--    <input id="video" formControlName="video" placeholder="iframe here"/>-->
+<!--  </div>-->
   <input class="btn btn-primary" type="submit" value="Add">
 </form>
 </div>

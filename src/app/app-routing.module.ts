@@ -5,7 +5,9 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {PostBlogComponent} from './user/post-blog/post-blog.component';
 import {BlogComponent} from './user/blog/blog.component';
+import {NotificationComponent} from './user/notification/notification.component';
 import {SocketComponent} from './socket/socket.component';
+
 
 const routes: Routes = [
   {
@@ -34,8 +36,13 @@ const routes: Routes = [
     component: BlogComponent
   },
   {
+    path: 'notification',
+    component: NotificationComponent
+  },
+  {
     path: 'socket',
     component: SocketComponent
+
   }
 ];
 
