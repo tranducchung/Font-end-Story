@@ -17,7 +17,6 @@ import { FormUploadComponent } from './form-upload/form-upload.component';
 import { NotificationComponent } from './notification/notification.component';
 import { DetailBlogShareComponent } from './detail-blog-share/detail-blog-share.component';
 
-
 @NgModule({
   declarations: [
     UserComponent,
@@ -42,5 +41,6 @@ import { DetailBlogShareComponent } from './detail-blog-share/detail-blog-share.
   ],
   exports: [UserComponent, DetailBlogComponent]
 })
+
 export class UserModule {
 }

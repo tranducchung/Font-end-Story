@@ -11,20 +11,29 @@ import {HttpClientModule} from '@angular/common/http';
 import {httpInterceptorProviders} from './auth/auth-interceptor';
 import {UserModule} from './user/user.module';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SocketComponent} from './socket/socket.component';
+import {ToastrModule} from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    SocketComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    UserModule
+    UserModule,
+    ToastrModule.forRoot(),
+
   ],
   providers: [httpInterceptorProviders],
   exports: [
