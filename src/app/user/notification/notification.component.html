@@ -10,21 +10,20 @@
     </header>
     <div class="row" style="margin-top: 50px; font-family: inherit; font-style: italic">
       <article class="col-sm-8">
-        <button type="button" routerLink="/addBlog" class="btn btn-success"><i class="fas fa-feather-alt"></i> Write Blog</button>
         <table class="table table-striped">
           <thead>
           <tr>
             <th scope="col">STT</th>
-            <th scope="col">Title</th>
-            <th scope="col">Edit</th>
+            <th scope="col">Content Message</th>
+            <th scope="col">Sender</th>
             <th scope="col">Delete</th>
           </tr>
           </thead>
-          <tbody *ngIf="listBlog !== null">
-          <tr *ngFor="let blog of listBlog; index as i" class="hello">
+          <tbody>
+          <tr *ngFor="let notifi of listNotifacation, index as i">
             <th scope="row">{{i+1}}</th>
-            <td><a  [innerHTML]="blog.title" style="text-decoration: none;font-size: 25px;"></a></td>
-            <td><button type="button" class="btn btn-warning" [routerLink]="['/blogManagement',blog.id,'edit']"><i class="fas fa-edit"></i></button></td>
+            <td><button type="button" class="btn btn-link" [routerLink]="['/notification',notifi.idUserShare,'blog',notifi.idBlog]">{{notifi.content}}</button></td>
+            <td>{{notifi.userShare}}</td>
             <td><button type="button" class="btn btn-danger" (click)="delete(i)"><i class="fas fa-trash-alt"></i></button></td>
           </tr>
           </tbody>
@@ -67,6 +66,3 @@
   <strong>Please Login!!!</strong>
   <a class="btn btn-primary" href="auth/login">Login</a>
 </ng-template>
-
-
-

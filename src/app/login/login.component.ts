@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
       },
       error => {
         console.log(error);
+        // alert('Invalid account or password! Please try again');
         this.errorMessage = error.error.message;
         this.isLoginFailed = true;
       }
