@@ -15,18 +15,17 @@ export class BlogComponent implements OnInit {
   info: any;
   indexOfShow = -1;
   showButton = false;
-  private video: SafeUrl =
-    '<iframe width="560" height="315" src="https://www.youtube.com/embed/XRlPKv4yxmg" ' +
-    'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+  // tslint:disable-next-line:max-line-length
+  // private video: SafeUrl = '<iframe width="560" height="315" src="https://www.youtube.com/embed/wIDtTB6yn8k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 
   constructor(
     private postService: PostService,
     private tokenService: TokenService,
     private sanitizer: DomSanitizer
   ) {
-    if (typeof this.video === 'string') {
-      this.video = this.sanitizer.bypassSecurityTrustHtml(this.video);
-    }
+    // if (typeof this.video === 'string') {
+    //   this.video = this.sanitizer.bypassSecurityTrustHtml(this.video);
+    // }
   }
 
   ngOnInit() {

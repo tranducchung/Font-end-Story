@@ -11,6 +11,7 @@ import {UserService} from './service/user.service';
 export class AppComponent implements OnInit {
   private roles: string[];
   private authority: string;
+  email: string;
   constructor(
     private tokenService: TokenService,
     private userService: UserService
@@ -29,6 +30,7 @@ export class AppComponent implements OnInit {
         return true;
       });
     }
+    this.email = this.tokenService.getEmail();
   }
 
   logOut() {

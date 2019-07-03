@@ -50,8 +50,6 @@ export class FormUploadComponent implements OnInit {
         }
       );
   }
-
-
   showFiles(enable: boolean) {
     this.showFile = enable;
 
