@@ -3,7 +3,7 @@ export interface Blog {
     id: number;
     title: string;
     content: string;
-    date: number;
+    createDate: string;
     user: User;
 }
 

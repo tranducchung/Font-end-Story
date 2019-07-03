@@ -53,7 +53,7 @@
   </header>
   <div class="row" style="margin-top: 50px; font-family: inherit; font-style: italic">
     <article class="col-sm-8 text-center">
-      <div *ngIf="currentFileUpload" class="progress">
+      <div  class="progress">
         <div class="progress-bar progress-bar-info progress-bar-striped"
              role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
              aria-valuemin="0" aria-valuemax="100"
@@ -62,11 +62,12 @@
         </div>
       </div>
 
+
       <label class="btn btn-default">
         <input type="file" (change)="selectFile($event)" multiple>
       </label>
 
-      <button class="btn btn-success" [disabled]="!selectedFiles"
+      <button class="btn btn-success"
               (click)="upload()">Upload
       </button>
       <button class="button btn-info" *ngIf='showFile'
@@ -92,6 +93,7 @@
           </div>
         </div>
       </div>
+
 
     </article>
     <aside class="col-sm-4">
