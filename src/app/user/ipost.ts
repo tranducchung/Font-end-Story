@@ -3,8 +3,8 @@ export interface Blog {
     id: number;
     title: string;
     content: string;
-    date: number;
     iframe: string;
+    createDate: string;
     user: User;
 }
 
