@@ -35,6 +35,7 @@
     "net": "^1.0.2",
     "ng2-ckeditor": "^1.2.3",
     "ngx-editor": "^4.1.0",
+    "ngx-embed-video": "^1.0.4",
     "ngx-toastr": "^10.0.4",
     "rxjs": "~6.3.3",
     "sockjs-client": "^1.3.0",

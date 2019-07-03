@@ -21,9 +21,8 @@
       <li class="nav-item dropdown" *ngIf="authority === 'user'">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user-cog"></i> User Board
+          <i class="fas fa-user-cog"></i> {{email}}
         </a>
-        <span>  </span>
         <div class="dropdown-menu listControl" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" routerLink="user"><i class="fas fa-info-circle"></i> Info User</a>
           <a class="dropdown-item" routerLink="blogManagement"><i class="fas fa-list-alt"></i> Blog Management</a>

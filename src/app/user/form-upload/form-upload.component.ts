@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UploadFileService} from '../../service/upload-file.service';
 import {HttpEventType, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
@@ -44,7 +44,7 @@ export class FormUploadComponent implements OnInit {
       }
     });
 
-    this.selectedFiles = undefined
+    this.selectedFiles = undefined;
   }
 
   showFiles(enable: boolean) {

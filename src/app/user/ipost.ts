@@ -4,6 +4,7 @@ export interface Blog {
     title: string;
     content: string;
     date: number;
+    iframe: string;
     user: User;
 }
 
