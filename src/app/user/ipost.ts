@@ -3,7 +3,7 @@ export interface Blog {
     id: number;
     title: string;
     content: string;
-    iframe: string;
+    urlVideo: string;
     createDate: string;
     user: User;
 }

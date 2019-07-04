@@ -1,10 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Blog, User} from '../ipost';
 import {PostService} from '../../service/post.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../service/user.service';
-import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
-import {EmbedVideoService} from 'ngx-embed-video/dist';
+import * as jspdf from 'jspdf';
+
+
+
 
 @Component({
   selector: 'app-detail-blog',
@@ -13,9 +15,12 @@ import {EmbedVideoService} from 'ngx-embed-video/dist';
 })
 export class DetailBlogComponent implements OnInit {
   blog: Blog;
-  iframe: string;
+  // tslint:disable-next-line:variable-name
+  url_video: string;
   listUser: User[];
   urlYT: string;
+
+  @ViewChild('content') content: ElementRef;
 
   constructor(
     private postService: PostService,
@@ -29,9 +34,9 @@ export class DetailBlogComponent implements OnInit {
     this.postService.getBlogById(id).subscribe(next => {
       this.blog = next;
       console.log(next);
-      console.log(next.iframe);
-      this.urlYT = next.iframe;
-      this.iframe = this.swapURL(this.urlYT);
+      console.log(next.urlVideo);
+      this.urlYT = next.urlVideo;
+      this.url_video = this.swapURL(this.urlYT);
       this.onDisplay();
     }, error => {
       console.log(error);
@@ -56,7 +61,15 @@ export class DetailBlogComponent implements OnInit {
   }
 
   onDisplay() {
-    document.getElementById('demo').innerHTML = this.iframe;
+    document.getElementById('demo').innerHTML = this.url_video;
+  }
+
+  makePdf() {
+    // tslint:disable-next-line:new-parens
+    const doc = new jspdf;
+    doc.addHTML(this.content.nativeElement, function() {
+      doc.save('obrz.pdf');
+    });
   }
 }
 

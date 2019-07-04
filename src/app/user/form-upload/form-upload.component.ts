@@ -44,6 +44,7 @@ export class FormUploadComponent implements OnInit {
       .subscribe(
         data => {
           console.log('oke uploaded !!!');
+          alert('Upload File Success');
         },
         (err: HttpErrorResponse) => {
           console.log(err.message);
