@@ -34,12 +34,11 @@ export class UploadFileService {
   }
 
   uploadFile(): Observable<Img[]> {
-
     const formData = new FormData();
     for (let i = 0; i < this.myFiles.length; i++) {
       formData.append('files', this.myFiles[i]);
     }
-
+    this.myFiles = [];
     return this.http.post<Img[]>(`${this.API_UPLOAD}/multi`, formData);
   }
 

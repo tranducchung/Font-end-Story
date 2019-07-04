@@ -34,7 +34,6 @@ import {ToastrModule} from 'ngx-toastr';
     ReactiveFormsModule,
     UserModule,
     ToastrModule.forRoot(),
-    // EmbedVideo.forRoot(),
   ],
   providers: [httpInterceptorProviders],
   exports: [
