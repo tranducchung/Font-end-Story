@@ -3,9 +3,10 @@ import {Blog, User} from '../ipost';
 import {PostService} from '../../service/post.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../service/user.service';
-import * as jspdf from 'jspdf';
+import {TokenService} from '../../auth/token.service';
 
-
+import {ExportAsService, ExportAsConfig} from 'ngx-export-as';
+import * as printJS from 'print-js';
 
 
 @Component({
@@ -14,22 +15,35 @@ import * as jspdf from 'jspdf';
   styleUrls: ['./detail-blog.component.scss']
 })
 export class DetailBlogComponent implements OnInit {
-  blog: Blog;
-  // tslint:disable-next-line:variable-name
-  url_video: string;
-  listUser: User[];
-  urlYT: string;
-
-  @ViewChild('content') content: ElementRef;
 
   constructor(
     private postService: PostService,
     private route: ActivatedRoute,
     private userService: UserService,
+    private tokenService: TokenService,
+    private exportAsService: ExportAsService,
   ) {
   }
 
+  blog: Blog;
+  url_video: string;
+  listUser: User[];
+  info: any;
+  urlYT: string;
+
+  exportAsConfig: ExportAsConfig = {
+    type: 'pdf',
+    elementId: 'pdftext',
+    fileName: 'mypdf',
+  };
+
   ngOnInit() {
+    this.info = {
+      token: this.tokenService.getToken(),
+      username: this.tokenService.getUsername(),
+      email: this.tokenService.getEmail(),
+      authorities: this.tokenService.getAuthor()
+    };
     const id = +this.route.snapshot.paramMap.get('id');
     this.postService.getBlogById(id).subscribe(next => {
       this.blog = next;
@@ -48,28 +62,30 @@ export class DetailBlogComponent implements OnInit {
   shareBlog(idUser: number, idBlog: number) {
     console.log(idUser);
     console.log(idBlog);
-    this.userService.shareBlog(idUser, idBlog).subscribe(next => console.log('aaa' + next), error => console.log(error));
+
   }
 
   swapURL(url: string) {
     const keyUrl: string = url.slice(32, 44);
     console.log(keyUrl);
     // tslint:disable-next-line:max-line-length
-    console.log('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + keyUrl + ' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+    console.log('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + keyUrl + '' +
+      ' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
     // tslint:disable-next-line:max-line-length
-    return '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + keyUrl + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    return '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + keyUrl +
+      '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
   }
 
   onDisplay() {
     document.getElementById('demo').innerHTML = this.url_video;
   }
 
-  makePdf() {
-    // tslint:disable-next-line:new-parens
-    const doc = new jspdf;
-    doc.addHTML(this.content.nativeElement, function() {
-      doc.save('obrz.pdf');
+
+  print() {
+    printJS({
+      printable: 'pdftext',
+      type: 'html',
+      targetStyles: ['*']
     });
   }
 }
-

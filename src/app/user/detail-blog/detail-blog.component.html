@@ -1,15 +1,20 @@
-<!--<div *ngIf="info.token; else loggedOut">-->
+
+<div *ngIf="info.token; else loggedOut">
   <div class="container content" style="height: auto" #content>
     <header class="row">
     </header>
-    <div class="row" style="margin-top: 50px; font-family: inherit; font-style: italic">
+    <div class="row" style="margin-top: 50px; font-family: inherit; font-style: italic" >
       <article class="col-sm-8" >
-        <div *ngIf="blog">
-          <div [innerHTML]="blog.title" style="font-size: 45px"></div>
+        <div *ngIf="blog" id="pdftext">
+          <div [innerHTML]="blog.title" style="font-size: 45px" ></div>
           <div>
-            <a [innerHTML]="blog.content"></a>
+            <a [innerHTML]="blog.content" ></a>
           </div>
         </div>
+        <div *ngIf="url_video !== null">
+          <div id="demo"></div>
+        </div>
+
         <div class="btn-group">
           <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">
@@ -20,12 +25,12 @@
               <button class="dropdown-item" (click)="shareBlog(user.id, blog.id)">{{user.username}}</button>
             </div>
           </div>
+
+          <ckbutton type="button" (click)="print()" >Export PDF</ckbutton>
         </div>
-        <div *ngIf="url_video !== null">
-          <div id="demo"></div>
-        </div>
-        <button (click)="makePdf()">make pdf</button>
+
       </article>
+
       <aside class="col-sm-4">
         <div>
           <h6>ABOUT ME</h6>
@@ -57,8 +62,7 @@
     <hr style="margin-top: 60px;">
   </div>
 
-
-
+</div>
 
 <!--<h2 class="text-center">Update Blog</h2>-->
 <!--<form [formGroup]="blogForm"  class="col-md-6 offset-md-3">-->
@@ -72,6 +76,10 @@
 <!--</form>-->
 
 
+<ng-template #loggedOut>
+  <strong>Please Login!!!</strong>
+  <a class="btn btn-primary" href="auth/login-user">Login</a>
+</ng-template>
 <!--<ng-template #loggedOut>-->
 <!--  <strong>Please Login!!!</strong>-->
 <!--  <a class="btn btn-primary" href="auth/login-user">Login</a>-->

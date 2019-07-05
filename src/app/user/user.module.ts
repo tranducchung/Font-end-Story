@@ -16,6 +16,7 @@ import { BlogShareComponent } from './blog-share/blog-share.component';
 import { FormUploadComponent } from './form-upload/form-upload.component';
 import { NotificationComponent } from './notification/notification.component';
 import { DetailBlogShareComponent } from './detail-blog-share/detail-blog-share.component';
+import {ExportAsModule} from 'ngx-export-as';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { DetailBlogShareComponent } from './detail-blog-share/detail-blog-share.
     HttpClientModule,
     ReactiveFormsModule,
     CKEditorModule,
+    ExportAsModule,
   ],
   exports: [UserComponent, DetailBlogComponent]
 })
