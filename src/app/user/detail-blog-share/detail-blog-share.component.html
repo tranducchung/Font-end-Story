@@ -1,0 +1,67 @@
+<div *ngIf="info.token; else loggedOut">
+<style>
+  .content img{
+    width: 100%;
+  }
+</style>
+<div class="container" style="height: auto">
+  <header class="row">
+  </header>
+  <div class="row" style="margin-top: 50px; font-family: inherit; font-style: italic">
+    <article class="col-sm-8">
+      <div *ngIf="blog" >
+        <div [innerHTML]="blog.title" style="font-size: 45px"></div>
+        <div>
+          <a [innerHTML]="blog.content"></a>
+        </div>
+      </div>
+    </article>
+    <aside class="col-sm-4">
+      <div>
+        <h6>ABOUT ME</h6>
+        <hr>
+        <img src="https://i.ibb.co/7yq673s/TheCAT.jpg" width="100%">
+        <p style="margin-top: 15px">My name is Activello and I am an awesome WordPress blog theme for photography,
+          food, travel and other blogs. I was created by colorlib.</p>
+      </div>
+      <div style="margin-top: 30px">
+        <h6>FOLLOW ME</h6>
+        <hr>
+        <div style="margin-top: 25px; margin-left: 75px">
+          <a href="#" class="hover"><i class="fab fa-facebook-square" style="margin-left: 15px; zoom: 2"></i></a>
+          <a href="#" class="hover"><i class="fab fa-twitter " style="margin-left: 15px; zoom: 2 "></i></a>
+          <a href="#" class="hover"><i class="fab fa-google" style="margin-left: 15px; zoom: 2;color: red  "></i></a>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <hr style="margin-top: 60px;">
+  <footer class="panel panel-default" style="margin-top: 40px">
+    <div class="panel-heading text-center">
+      <a href="#" class="hover"><i class="fab fa-facebook-square" style="margin-left: 15px; zoom: 2"></i></a>
+      <a href="#" class="hover"><i class="fab fa-twitter " style="margin-left: 15px; zoom: 2 "></i></a>
+      <a href="#" class="hover"><i class="fab fa-google" style="margin-left: 15px; zoom: 2;color: red  "></i></a>
+    </div>
+    <p style="margin-top: 12px;margin-left: 380px">Activello. Theme by Colorlib Powered by WordPress</p>
+  </footer>
+  <hr style="margin-top: 60px;">
+</div>
+</div>
+
+<!--<h2 class="text-center">Update Blog</h2>-->
+<!--<form [formGroup]="blogForm"  class="col-md-6 offset-md-3">-->
+<!--  <div class="form-group">-->
+<!--    <div id="exampleFormControlInput1" formControlName="title"></div>-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <div  id="exampleFormControlTextarea1" formControlName="content"></div>-->
+<!--  </div>-->
+<!--&lt;!&ndash;  <input class="btn btn-primary" type="submit" value="Update">&ndash;&gt;-->
+<!--</form>-->
+
+
+
+<ng-template #loggedOut>
+  <strong>Please Login!!!</strong>
+  <a class="btn btn-primary" href="auth/login-user">Login</a>
+</ng-template>

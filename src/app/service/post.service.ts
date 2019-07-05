@@ -8,7 +8,8 @@ import {Blog} from '../user/ipost';
 })
 export class PostService {
   private API_URL_BLOG = 'http://localhost:8080/api/blogs';
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient) { }
 
   getBlogs(): Observable<Blog[]> {
     return this.http.get<Blog[]>(`${this.API_URL_BLOG}/getall`);

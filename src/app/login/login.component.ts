@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthLoginInfo} from '../auth/login-info';
 import {AuthService} from '../auth/auth.service';
 import {TokenService} from '../auth/token.service';
+import {locateDirectiveOrProvider} from '@angular/core/src/render3/di';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private tokenService: TokenService) {
+    // console.log(localStorage.getItem("AuthToken"));
   }
 
   ngOnInit() {
@@ -49,6 +51,7 @@ export class LoginComponent implements OnInit {
       },
       error => {
         console.log(error);
+        // alert('Invalid account or password! Please try again');
         this.errorMessage = error.error.message;
         this.isLoginFailed = true;
       }

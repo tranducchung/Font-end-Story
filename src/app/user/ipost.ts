@@ -1,11 +1,9 @@
-import DateTimeFormat = Intl.DateTimeFormat;
-import {DatePipe} from '@angular/common';
-import DateTimeFormatOptions = Intl.DateTimeFormatOptions;
 
 export interface Blog {
     id: number;
     title: string;
     content: string;
+    urlVideo: string;
     createDate: string;
     user: User;
 }
@@ -29,4 +27,14 @@ export interface Img {
   id: number;
   srcImg: string;
   user: User;
+}
+
+export interface Notification {
+  id: number;
+  content: string;
+  userShare: string;
+  idUserShare: number;
+  idBlog: number;
+  userReceive: User;
+
 }

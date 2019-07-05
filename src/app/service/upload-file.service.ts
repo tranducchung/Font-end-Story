@@ -9,12 +9,10 @@ import {Img} from '../user/ipost';
 export class UploadFileService {
 
   private API_UPLOAD = 'http://localhost:8080/api/upload';
-
+  constructor(private http: HttpClient) {}
   private myFiles: string[] = [];
   private mess: string;
 
-  constructor(private http: HttpClient) {
-  }
 
   // pushFileToStorage(files: FileList): Observable<HttpEvent<{}>> {
   //   const formdata: FormData = new FormData();
@@ -36,12 +34,11 @@ export class UploadFileService {
   }
 
   uploadFile(): Observable<Img[]> {
-
     const formData = new FormData();
     for (let i = 0; i < this.myFiles.length; i++) {
       formData.append('files', this.myFiles[i]);
     }
-
+    this.myFiles = [];
     return this.http.post<Img[]>(`${this.API_UPLOAD}/multi`, formData);
   }
 

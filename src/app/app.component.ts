@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TokenService} from './auth/token.service';
+import {User} from './user/ipost';
+import {UserService} from './service/user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +11,11 @@ import {TokenService} from './auth/token.service';
 export class AppComponent implements OnInit {
   private roles: string[];
   private authority: string;
-
-  constructor(private tokenService: TokenService) {
+  email: string;
+  constructor(
+    private tokenService: TokenService,
+    private userService: UserService
+  ) {
   }
 
   ngOnInit() {
@@ -25,6 +30,7 @@ export class AppComponent implements OnInit {
         return true;
       });
     }
+    this.email = this.tokenService.getEmail();
   }
 
   logOut() {
