@@ -22,7 +22,7 @@
           <tbody>
           <tr *ngFor="let notifi of listNotifacation, index as i">
             <th scope="row">{{i+1}}</th>
-            <td><button type="button" class="btn btn-link" [routerLink]="['/notification',notifi.idUserShare,'blog',notifi.idBlog]">{{notifi.content}}</button></td>
+            <td><button type="button" class="btn btn-link" [routerLink]="['/notification',notifi.idUser,'blog',notifi.idBlog]">{{notifi.content}}</button></td>
             <td>{{notifi.userShare}}</td>
             <td><button type="button" class="btn btn-danger" (click)="delete(i)"><i class="fas fa-trash-alt"></i></button></td>
           </tr>
@@ -31,7 +31,7 @@
       </article>
       <aside class="col-sm-4">
         <div>
-          <h6>ABOUT ME</h6>
+          <h6>ABOUT</h6>
           <hr>
           <img
             src="https://colorlib.com/activello/wp-content/uploads/sites/10/2012/03/photo-1437915015400-137312b61975-330x220.jpg"

@@ -3,7 +3,7 @@ import {Blog, User} from '../ipost';
 import {PostService} from '../../service/post.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../service/user.service';
-import * as jspdf from 'jspdf';
+import { NgxLinkifyOptions } from 'ngx-linkifyjs';
 
 
 
@@ -19,7 +19,26 @@ export class DetailBlogComponent implements OnInit {
   url_video: string;
   listUser: User[];
   urlYT: string;
-
+ options: NgxLinkifyOptions =
+    {
+      attributes: null,
+      className: 'linkified',
+      defaultProtocol: 'http',
+      events: null,
+      format: (value, type) => {
+        return value;
+      },
+      formatHref: (href, type) => {
+        return href;
+      },
+      ignoreTags: [],
+      nl2br: false,
+      tagName: 'a',
+      target: {
+        url: '_blank'
+      },
+      validate: true
+    };
   @ViewChild('content') content: ElementRef;
 
   constructor(
@@ -36,6 +55,7 @@ export class DetailBlogComponent implements OnInit {
       console.log(next);
       console.log(next.urlVideo);
       this.urlYT = next.urlVideo;
+      console.log(this.urlYT);
       this.url_video = this.swapURL(this.urlYT);
       this.onDisplay();
     }, error => {
@@ -63,13 +83,8 @@ export class DetailBlogComponent implements OnInit {
   onDisplay() {
     document.getElementById('demo').innerHTML = this.url_video;
   }
-
-  makePdf() {
-    // tslint:disable-next-line:new-parens
-    const doc = new jspdf;
-    doc.addHTML(this.content.nativeElement, function() {
-      doc.save('obrz.pdf');
-    });
+  shareBlogByGmail(idUser: number, idBlog: number) {
+    this.userService.shareBlogByEmail(idUser, idBlog).subscribe(next => console.log(next), error => console.log(error) )
   }
 }
 

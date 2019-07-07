@@ -38,7 +38,8 @@ export class PostBlogComponent implements OnInit {
     this.blogForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(2)]],
       content: ['', [Validators.required, Validators.minLength(2)]],
-      urlVideo: ['']
+      urlVideo: [''],
+      hashTags: ['']
     });
   }
 

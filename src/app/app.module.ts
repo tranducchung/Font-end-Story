@@ -14,7 +14,7 @@ import {UserModule} from './user/user.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SocketComponent} from './socket/socket.component';
 import {ToastrModule} from 'ngx-toastr';
-// import {EmbedVideo} from 'ngx-embed-video/dist';
+import { NgxLinkifyjsModule } from 'ngx-linkifyjs';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import {ToastrModule} from 'ngx-toastr';
     ReactiveFormsModule,
     UserModule,
     ToastrModule.forRoot(),
+    NgxLinkifyjsModule.forRoot()
   ],
   providers: [httpInterceptorProviders],
   exports: [

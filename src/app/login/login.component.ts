@@ -3,6 +3,8 @@ import {AuthLoginInfo} from '../auth/login-info';
 import {AuthService} from '../auth/auth.service';
 import {TokenService} from '../auth/token.service';
 import {locateDirectiveOrProvider} from '@angular/core/src/render3/di';
+import {SessionServiceService} from '../service/session-service.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +21,11 @@ export class LoginComponent implements OnInit {
   private loginInfo: AuthLoginInfo;
 
   constructor(private authService: AuthService,
-              private tokenService: TokenService) {
+              private tokenService: TokenService,
+              private sessionService: SessionServiceService,
+              private router: Router,
+              private route: ActivatedRoute,
+  ) {
     // console.log(localStorage.getItem("AuthToken"));
   }
 
@@ -47,7 +53,12 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenService.getAuthor();
-        this.reloadPage();
+        if (this.sessionService.getLinkBlog() !== null) {
+          window.location.href = this.sessionService.getLinkBlog();
+          window.sessionStorage.removeItem(this.sessionService.getLinkBlog());
+        } else {
+          this.reloadPage();
+        }
       },
       error => {
         console.log(error);
