@@ -35,7 +35,8 @@ const routes: Routes = [
   },
   {
     path: 'notification/:idUser/blog/:idBlog',
-    component: DetailBlogShareComponent
+    component: DetailBlogShareComponent,
+    pathMatch: 'full'
   }
 ];
 

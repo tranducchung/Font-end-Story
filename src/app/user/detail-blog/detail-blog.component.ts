@@ -3,8 +3,8 @@ import {Blog, User} from '../ipost';
 import {PostService} from '../../service/post.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../service/user.service';
+import { NgxLinkifyOptions } from 'ngx-linkifyjs';
 import {TokenService} from '../../auth/token.service';
-
 import {ExportAsService, ExportAsConfig} from 'ngx-export-as';
 import * as printJS from 'print-js';
 
@@ -15,6 +15,32 @@ import * as printJS from 'print-js';
   styleUrls: ['./detail-blog.component.scss']
 })
 export class DetailBlogComponent implements OnInit {
+  blog: Blog;
+  // tslint:disable-next-line:variable-name
+  url_video: string;
+  listUser: User[];
+  urlYT: string;
+ options: NgxLinkifyOptions =
+    {
+      attributes: null,
+      className: 'linkified',
+      defaultProtocol: 'http',
+      events: null,
+      format: (value, type) => {
+        return value;
+      },
+      formatHref: (href, type) => {
+        return href;
+      },
+      ignoreTags: [],
+      nl2br: false,
+      tagName: 'a',
+      target: {
+        url: '_blank'
+      },
+      validate: true
+    };
+  @ViewChild('content') content: ElementRef;
 
   constructor(
     private postService: PostService,
@@ -50,6 +76,7 @@ export class DetailBlogComponent implements OnInit {
       console.log(next);
       console.log(next.urlVideo);
       this.urlYT = next.urlVideo;
+      console.log(this.urlYT);
       this.url_video = this.swapURL(this.urlYT);
       this.onDisplay();
     }, error => {
@@ -80,7 +107,8 @@ export class DetailBlogComponent implements OnInit {
     document.getElementById('demo').innerHTML = this.url_video;
   }
 
-
+  shareBlogByGmail(idUser: number, idBlog: number) {
+    this.userService.shareBlogByEmail(idUser, idBlog).subscribe(next => console.log(next), error => console.log(error) )
   print() {
     printJS({
       printable: 'pdftext',

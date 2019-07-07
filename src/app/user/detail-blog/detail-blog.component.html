@@ -1,36 +1,54 @@
-
+<style>
+  .display-none {
+    display: none;
+  }
+  .dropdown-item:hover .display-none {
+      display: block;
+  }
+</style>
 <div *ngIf="info.token; else loggedOut">
   <div class="container content" style="height: auto" #content>
     <header class="row">
     </header>
     <div class="row" style="margin-top: 50px; font-family: inherit; font-style: italic" >
       <article class="col-sm-8" >
-        <div *ngIf="blog" id="pdftext">
-          <div [innerHTML]="blog.title" style="font-size: 45px" ></div>
+        <div *ngIf="blog">
+          <div [innerHTML]="blog.title" style="font-size: 45px"></div>
+          <div>writen{{blog.user.username}}</div>
+          <span [innerHTML]=" blog.hashTags|linkify" ></span>
           <div>
             <a [innerHTML]="blog.content" ></a>
           </div>
         </div>
-        <div *ngIf="url_video !== null">
+        <div *ngIf="urlYT !=='' ">
           <div id="demo"></div>
         </div>
-
         <div class="btn-group">
           <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">
-            Share
+            Share Blog
           </button>
-          <div class="dropdown-menu">
-            <div *ngFor="let user of listUser,index as i">
-              <button class="dropdown-item" (click)="shareBlog(user.id, blog.id)">{{user.username}}</button>
+          <div class="dropdown-menu" >
+            <div *ngFor="let user of listUser, index as i">
+              <button class="btn btn-outline-info" (click)="shareBlog(user.id, blog.id)">{{user.username}}</button>
+            </div>
+           </div>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+            Share Gmail
+          </button>
+          <div class="dropdown-menu" >
+            <div *ngFor="let user of listUser, index as i">
+              <button (click)="shareBlogByGmail(user.id, blog.id)" class="btn btn-outline-info">{{user.username}}</button>
             </div>
           </div>
-
+        </div>
+          </div>
           <ckbutton type="button" (click)="print()" >Export PDF</ckbutton>
         </div>
-
       </article>
-
       <aside class="col-sm-4">
         <div>
           <h6>ABOUT ME</h6>

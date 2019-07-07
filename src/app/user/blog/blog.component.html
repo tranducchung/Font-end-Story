@@ -58,6 +58,19 @@
         </div>
       </article>
       <aside class="col-sm-4">
+        <div class="panel panel-default">
+          <div class = "panel-heading">
+            <b class = "panel-title">
+              <i class="fas fa-search"></i> Search
+            </b>
+          </div>
+          <div class="panel-body">
+            <form>
+              <input placeholder="Keywords" class="form-control" (change)="onChange($event.target.value)"/>
+            </form>
+          </div>
+        </div>
+        <hr>
         <div>
           <h6>ABOUT ME</h6>
           <hr>
@@ -92,13 +105,6 @@
     </footer>
     <hr style="margin-top: 60px;">
   </div>
-<!--  <p [innerHTML]="video"></p>-->
-<!--  <div *ngFor="let blog of blogList; index as i;">-->
-<!--    <a [routerLink]="['/listBlog',blog.id,'detail']"-->
-<!--       style="text-decoration: none;font-size: 25px; font-weight: 700" [innerText]=blog.title></a>-->
-<!--    <div>{{blog.date | date }}</div>-->
-<!--    <div [innerHTML]=blog.content></div>-->
-<!--  </div>-->
 </div>
 
 <ng-template #loggedOut>
