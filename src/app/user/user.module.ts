@@ -17,6 +17,9 @@ import {FormUploadComponent} from './form-upload/form-upload.component';
 import {NotificationComponent} from './notification/notification.component';
 import {DetailBlogShareComponent} from './detail-blog-share/detail-blog-share.component';
 import { NgxLinkifyjsModule } from 'ngx-linkifyjs';
+import {ExportAsModule} from 'ngx-export-as';
+
+
 @NgModule({
   declarations: [
     UserComponent,
@@ -39,6 +42,7 @@ import { NgxLinkifyjsModule } from 'ngx-linkifyjs';
     ReactiveFormsModule,
     CKEditorModule,
     NgxLinkifyjsModule.forRoot()
+    ExportAsModule,
   ],
   exports: [UserComponent, DetailBlogComponent, DetailBlogShareComponent]
 })
