@@ -119,7 +119,7 @@
 
 
 
-<!--<div *ngIf="info.token; else loggedOut">-->
+<div *ngIf="info.token; else loggedOut">
 <div class="container" style="height: auto">
   <header class="row">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -222,9 +222,8 @@
   </footer>
   <hr style="margin-top: 60px;">
 </div>
-<!--</div>-->
+</div>
 
-<!--<ng-template #loggedOut>-->
-<!--  <strong>Please Login!!!</strong>-->
-<!--  <a class="btn btn-primary" href="auth/login">Login</a>-->
-<!--</ng-template>-->
+<ng-template #loggedOut>
+ <app-login></app-login>
+</ng-template>

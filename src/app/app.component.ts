@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TokenService} from './auth/token.service';
 import {User} from './user/ipost';
 import {UserService} from './service/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +15,8 @@ export class AppComponent implements OnInit {
   email: string;
   constructor(
     private tokenService: TokenService,
-    private userService: UserService
-  ) {
-  }
+    private router: Router,
+  ) {}
 
   ngOnInit() {
     if (this.tokenService.getToken()) {
@@ -35,6 +35,10 @@ export class AppComponent implements OnInit {
 
   logOut() {
     this.tokenService.signOut();
+    this.router.navigate(['auth/login']);
+    setTimeout(this.reloadPage, 1);
+  }
+  reloadPage() {
     window.location.reload();
   }
 }

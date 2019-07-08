@@ -1,4 +1,4 @@
-<div *ngIf="info.token; else loggedOut">
+<div *ngIf="info.token">
   <div class="container content" style="height: auto" #content>
     <header class="row">
     </header>
@@ -85,10 +85,11 @@
 <!--</form>-->
 
 
-<ng-template #loggedOut>
-  <strong>Please Login!!!</strong>
-  <a class="btn btn-primary" href="/auth/login">Login</a>
-</ng-template>
+<!--<ng-template #loggedOut>-->
+<!--  <strong>Please Login!!!</strong>-->
+<!--  <a class="btn btn-primary" href="/auth/login">Login</a>-->
+<!--</ng-template>-->
+
 <!--<ng-template #loggedOut>-->
 <!--  <strong>Please Login!!!</strong>-->
 <!--  <a class="btn btn-primary" href="auth/login-user">Login</a>-->

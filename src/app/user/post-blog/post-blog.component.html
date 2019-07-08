@@ -23,10 +23,16 @@
     <p>Example: https://www.youtube.com/watch?v=<span style="color: red;"><b>KMssEAd8aU8</b></span> <= This is ID video</p>
     <input type="text" class="form-control" id="urlVideo" formControlName="urlVideo">
   </div>
+  <div *ngIf="blogForm.get('urlVideo').invalid && blogForm.get('urlVideo').touched" style="color: red">
+    Url Youtube is invalid, Please read the instructions above !! Thank
+  </div>
 
   <div class="form-group">
     <label for="hashTags">HashTags</label>
     <input type="text" class="form-control" id="hashTags" formControlName="hashTags">
+  </div>
+  <div *ngIf="blogForm.get('hashTags').invalid && blogForm.get('hashTags').touched" style="color: red">
+    The first is #
   </div>
 
   <input class="btn btn-primary" type="submit" value="Add">

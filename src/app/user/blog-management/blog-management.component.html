@@ -3,7 +3,7 @@
     font-size: 1.5rem;
   }
 </style>
-<div *ngIf="info.token; else loggedOut">
+<div *ngIf="info.token">
 
   <div class="container" style="height: auto">
     <header class="row">
@@ -63,10 +63,10 @@
     <hr style="margin-top: 60px;">
   </div>
 </div>
-<ng-template #loggedOut>
-  <strong>Please Login!!!</strong>
-  <a class="btn btn-primary" href="auth/login">Login</a>
-</ng-template>
+<!--<ng-template #loggedOut>-->
+<!--  <strong>Please Login!!!</strong>-->
+<!--  <a class="btn btn-primary" href="auth/login">Login</a>-->
+<!--</ng-template>-->
 
 
 
