@@ -3,7 +3,7 @@ import {Blog, User} from '../ipost';
 import {PostService} from '../../service/post.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../service/user.service';
-import { NgxLinkifyOptions } from 'ngx-linkifyjs';
+import {NgxLinkifyOptions} from 'ngx-linkifyjs';
 import {TokenService} from '../../auth/token.service';
 import {ExportAsService, ExportAsConfig} from 'ngx-export-as';
 import * as printJS from 'print-js';
@@ -20,7 +20,9 @@ export class DetailBlogComponent implements OnInit {
   url_video: string;
   listUser: User[];
   urlYT: string;
- options: NgxLinkifyOptions =
+  info: any;
+  listUserDisplay: User[] = [];
+  options: NgxLinkifyOptions =
     {
       attributes: null,
       className: 'linkified',
@@ -48,14 +50,9 @@ export class DetailBlogComponent implements OnInit {
     private userService: UserService,
     private tokenService: TokenService,
     private exportAsService: ExportAsService,
+    private router: Router,
   ) {
   }
-
-  blog: Blog;
-  url_video: string;
-  listUser: User[];
-  info: any;
-  urlYT: string;
 
   exportAsConfig: ExportAsConfig = {
     type: 'pdf',
@@ -83,7 +80,10 @@ export class DetailBlogComponent implements OnInit {
       console.log(error);
       this.blog = null;
     });
-    this.userService.getUsers().subscribe(next => (this.listUser = next), error => (this.listUser = []));
+    this.userService.getUsers().subscribe(next => {
+      this.listUser = next;
+      this.checkDuplicateUser(this.listUser, this.listUserDisplay);
+    } , error => (this.listUser = []));
   }
 
   shareBlog(idUser: number, idBlog: number) {
@@ -108,7 +108,12 @@ export class DetailBlogComponent implements OnInit {
   }
 
   shareBlogByGmail(idUser: number, idBlog: number) {
-    this.userService.shareBlogByEmail(idUser, idBlog).subscribe(next => console.log(next), error => console.log(error) )
+    this.userService.shareBlogByEmail(idUser, idBlog).subscribe(next => {
+      console.log(next);
+      alert('Share to gmail success');
+    }, error => console.log(error));
+  }
+
   print() {
     printJS({
       printable: 'pdftext',
@@ -116,4 +121,15 @@ export class DetailBlogComponent implements OnInit {
       targetStyles: ['*']
     });
   }
+
+  checkDuplicateUser(listUser: User[], listUserDisplay: User[]): any {
+    for (let i = 0; i < listUser.length; i++) {
+      if (listUser[i].email !== this.tokenService.getEmail()) {
+        listUserDisplay.push(listUser[i]);
+      }
+    }
+    console.log(listUserDisplay);
+    return this.listUserDisplay;
+  }
+
 }
