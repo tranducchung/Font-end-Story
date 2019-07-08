@@ -38,19 +38,24 @@ export class PostBlogComponent implements OnInit {
     this.blogForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(2)]],
       content: ['', [Validators.required, Validators.minLength(2)]],
-      urlVideo: [''],
-      hashTags: ['']
+      urlVideo: ['', [Validators.pattern('^(https?\\:\\/\\/)?(www\\.)?(youtube\\.com|youtu\\.?be)\\/.+$')]],
+      hashTags: ['', [Validators.pattern('(?:\\s|^)#[A-Za-z0-9\\-\\.\\_]+(?:\\s|$)')]]
     });
   }
 
   onSubmit() {
-    const {value} = this.blogForm;
-    const data = {
-      ...this.blog,
-      ...value
-    };
-    this.postService.addBlog(data).subscribe(next => {
-      this.router.navigate(['/listBlog']);
-    }, error => console.log(error));
+    if (this.blogForm.valid) {
+      const {value} = this.blogForm;
+      const data = {
+        ...this.blog,
+        ...value
+      };
+      this.postService.addBlog(data).subscribe(next => {
+        this.router.navigate(['/listBlog']);
+      }, error => console.log(error));
+    } else {
+      this.blogForm.i
+      alert('The Blog is not valid! Please try again');
+    }
   }
 }
