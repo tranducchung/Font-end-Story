@@ -17,6 +17,8 @@ import { FormUploadComponent } from './form-upload/form-upload.component';
 import { NotificationComponent } from './notification/notification.component';
 import { DetailBlogShareComponent } from './detail-blog-share/detail-blog-share.component';
 import {ExportAsModule} from 'ngx-export-as';
+import {NgxLinkifyjsModule} from 'ngx-linkifyjs';
+import {JwSocialButtonsModule} from 'jw-angular-social-buttons';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import {ExportAsModule} from 'ngx-export-as';
     ReactiveFormsModule,
     CKEditorModule,
     ExportAsModule,
+    NgxLinkifyjsModule,
+    JwSocialButtonsModule
   ],
   exports: [UserComponent, DetailBlogComponent]
 })

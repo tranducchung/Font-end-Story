@@ -1,6 +1,7 @@
 <div *ngIf="info.token; else loggedOut">
   {{info.username}}
-</div>
+  <span [innerHTML]="'test tag #kkkk and share it <3' | linkify"></span></div>
+<fb-like url="http://localhost:2406/user"></fb-like>
 <ng-template #loggedOut>
   <strong>Please Login!!!</strong>
   <a class="btn btn-primary" href="auth/login">Login</a>

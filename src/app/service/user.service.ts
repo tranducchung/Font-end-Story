@@ -10,7 +10,6 @@ export class UserService {
   private API_USER = 'http://localhost:8080/api/users';
   private API_SHARE = 'http://localhost:8080/api/notifi/user';
   private API_DELETEBLOGSHARE = 'http://localhost:8080/api/oneNotifi';
-  
   constructor(private http: HttpClient) {
   }
   getUsers(): Observable<User[]> {
