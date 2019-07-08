@@ -1,18 +1,10 @@
-<style>
-  .display-none {
-    display: none;
-  }
-  .dropdown-item:hover .display-none {
-      display: block;
-  }
-</style>
 <div *ngIf="info.token; else loggedOut">
   <div class="container content" style="height: auto" #content>
     <header class="row">
     </header>
     <div class="row" style="margin-top: 50px; font-family: inherit; font-style: italic" >
       <article class="col-sm-8" >
-        <div *ngIf="blog">
+        <div *ngIf="blog" id="pdftext">
           <div [innerHTML]="blog.title" style="font-size: 45px"></div>
           <div>writen{{blog.user.username}}</div>
           <span [innerHTML]=" blog.hashTags|linkify" ></span>
@@ -29,7 +21,7 @@
             Share Blog
           </button>
           <div class="dropdown-menu" >
-            <div *ngFor="let user of listUser, index as i">
+            <div *ngFor="let user of listUserDisplay, index as i">
               <button class="btn btn-outline-info" (click)="shareBlog(user.id, blog.id)">{{user.username}}</button>
             </div>
            </div>
@@ -40,13 +32,13 @@
             Share Gmail
           </button>
           <div class="dropdown-menu" >
-            <div *ngFor="let user of listUser, index as i">
+            <div *ngFor="let user of listUserDisplay, index as i">
               <button (click)="shareBlogByGmail(user.id, blog.id)" class="btn btn-outline-info">{{user.username}}</button>
             </div>
           </div>
         </div>
-          </div>
-          <ckbutton type="button" (click)="print()" >Export PDF</ckbutton>
+          <div>
+          <ckbutton type="button" command="export" name="export" (click)="print()" >Export PDF</ckbutton>
         </div>
       </article>
       <aside class="col-sm-4">
@@ -79,7 +71,6 @@
     </footer>
     <hr style="margin-top: 60px;">
   </div>
-
 </div>
 
 <!--<h2 class="text-center">Update Blog</h2>-->
@@ -96,7 +87,7 @@
 
 <ng-template #loggedOut>
   <strong>Please Login!!!</strong>
-  <a class="btn btn-primary" href="auth/login-user">Login</a>
+  <a class="btn btn-primary" href="/auth/login">Login</a>
 </ng-template>
 <!--<ng-template #loggedOut>-->
 <!--  <strong>Please Login!!!</strong>-->

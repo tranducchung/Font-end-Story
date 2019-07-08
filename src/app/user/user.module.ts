@@ -18,6 +18,7 @@ import {NotificationComponent} from './notification/notification.component';
 import {DetailBlogShareComponent} from './detail-blog-share/detail-blog-share.component';
 import { NgxLinkifyjsModule } from 'ngx-linkifyjs';
 import {ExportAsModule} from 'ngx-export-as';
+import { AllUserComponent } from './all-user/all-user.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {ExportAsModule} from 'ngx-export-as';
     FormUploadComponent,
     NotificationComponent,
     DetailBlogShareComponent,
+    AllUserComponent,
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,7 @@ import {ExportAsModule} from 'ngx-export-as';
     HttpClientModule,
     ReactiveFormsModule,
     CKEditorModule,
-    NgxLinkifyjsModule.forRoot()
+    NgxLinkifyjsModule.forRoot(),
     ExportAsModule,
   ],
   exports: [UserComponent, DetailBlogComponent, DetailBlogShareComponent]
