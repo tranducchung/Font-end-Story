@@ -54,7 +54,6 @@ export class PostBlogComponent implements OnInit {
         this.router.navigate(['/listBlog']);
       }, error => console.log(error));
     } else {
-      this.blogForm.i
       alert('The Blog is not valid! Please try again');
     }
   }

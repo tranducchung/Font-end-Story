@@ -15,8 +15,8 @@
         <div *ngIf="urlYT !=='' ">
           <div id="demo"></div>
         </div>
-        <div class="btn-group">
-          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+        <div class="btn-group" style="position: absolute; right: 0px">
+          <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">
             Share Blog
           </button>
@@ -26,8 +26,8 @@
             </div>
            </div>
         </div>
-        <div class="btn-group">
-          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+        <div class="btn-group" style="position: absolute; right: 125px">
+          <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">
             Share Gmail
           </button>
@@ -38,7 +38,7 @@
           </div>
         </div>
           <div>
-          <ckbutton type="button" command="export" name="export" (click)="print()" >Export PDF</ckbutton>
+          <ckbutton type="button" command="export" class="btn btn-outline-info" name="export" (click)="print()" >Export PDF</ckbutton>
         </div>
       </article>
       <aside class="col-sm-4">
