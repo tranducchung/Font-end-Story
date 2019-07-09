@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {TokenService} from '../auth/token.service';
-import {JwtResponse} from '../auth/jwt-response';
 import {PostService} from '../service/post.service';
 import {Blog} from '../user/ipost';
 
@@ -29,14 +28,13 @@ export class HomeComponent implements OnInit {
     };
     if (this.swapURL(window.location.href) !== '') {
       this.postService.getBlogByHashTag(this.swapURL(window.location.href)).subscribe(next => {
-        this.listBlog = next;
-        console.log(this.listBlog);
+          this.listBlog = next;
+          console.log(this.listBlog);
         }
-        , error => console.log('aaaa' + error.message));
+        , error => console.log(error.message));
     } else {
       this.postService.getAllBlogByAllUser().subscribe(next => this.listBlog = next, error => console.log(error));
     }
-    // this.postService.getBlogByHashTag('VHTM').subscribe(next => this.listBlog = next, error => console.log(error) );
   }
 
   readMore(i) {
@@ -45,6 +43,7 @@ export class HomeComponent implements OnInit {
 
   showContent(enable: boolean) {
     this.showButton = enable;
+
   }
 
   swapURL(homeURL: string) {
