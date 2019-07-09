@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Blog} from '../ipost';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../service/user.service';
+import {TokenService} from '../../auth/token.service';
+import {SessionServiceService} from '../../service/session-service.service';
 
 @Component({
   selector: 'app-detail-blog-share',
@@ -10,17 +12,35 @@ import {UserService} from '../../service/user.service';
 })
 export class DetailBlogShareComponent implements OnInit {
   blog: Blog;
+  info: any;
+  currentURL = '';
+
   constructor(
     private route: ActivatedRoute,
-    private userService: UserService
-  ) { }
+    private userService: UserService,
+    private tokenService: TokenService,
+    private sessionService: SessionServiceService,
+    private router: Router,
+  ) {
+  }
 
   ngOnInit() {
+    this.info = {
+      token: this.tokenService.getToken(),
+      username: this.tokenService.getUsername(),
+      email: this.tokenService.getEmail(),
+      authorities: this.tokenService.getAuthor()
+    };
     const idUser = +this.route.snapshot.paramMap.get('idUser');
     const idBlog = +this.route.snapshot.paramMap.get('idBlog');
     console.log(idUser);
     console.log(idBlog);
-    this.userService.getBlogShare(idUser, idBlog).subscribe(next => this.blog = next, error => console.log(error) );
+    this.userService.getBlogShare(idUser, idBlog).subscribe(next => this.blog = next, error => console.log(error));
   }
 
+  redirect() {
+    this.currentURL = window.location.href;
+    this.sessionService.saveLink(this.currentURL);
+    this.router.navigate(['/auth/login']);
+  }
 }

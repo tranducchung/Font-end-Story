@@ -1,4 +1,4 @@
-<div *ngIf="info.token; else loggedOut">
+<!--<div *ngIf="info.token; else loggedOut">-->
   <div class="container" style="height: auto">
     <header class="row">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -35,7 +35,7 @@
     </header>
     <div class="row" style="margin-top: 50px; font-family: inherit; font-style: italic">
       <article class="col-sm-8">
-        <div *ngFor="let blog of blogList; index as i;">
+        <div *ngFor="let blog of listBlog; index as i;">
           <div class="content" style="text-align: center">
             <a [routerLink]="['/listBlog',blog.id,'detail']" [innerHTML]="blog.title"
                style="text-decoration: none;font-size: 25px; font-weight: 700"></a>
@@ -61,13 +61,9 @@
         <div class="panel panel-default">
           <div class = "panel-heading">
             <b class = "panel-title">
-              <i class="fas fa-search"></i> Search
             </b>
           </div>
           <div class="panel-body">
-            <form>
-              <input placeholder="Keywords" class="form-control" (change)="onChange($event.target.value)"/>
-            </form>
           </div>
         </div>
         <hr>
@@ -105,9 +101,9 @@
     </footer>
     <hr style="margin-top: 60px;">
   </div>
-</div>
+<!--</div>-->
 
-<ng-template #loggedOut>
-  <strong>Please Login!!!</strong>
-  <a class="btn btn-primary" href="auth/login">Login</a>
-</ng-template>
+<!--<ng-template #loggedOut>-->
+<!--  <strong>Please Login!!!</strong>-->
+<!--  <a class="btn btn-primary" href="auth/login">Login</a>-->
+<!--</ng-template>-->

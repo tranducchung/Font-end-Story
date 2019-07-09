@@ -5,6 +5,7 @@ export interface Blog {
     content: string;
     urlVideo: string;
     createDate: string;
+    hashTags: string;
     user: User;
 }
 
@@ -33,7 +34,7 @@ export interface Notification {
   id: number;
   content: string;
   userShare: string;
-  idUserShare: number;
+  idUser: number;
   idBlog: number;
   userReceive: User;
 

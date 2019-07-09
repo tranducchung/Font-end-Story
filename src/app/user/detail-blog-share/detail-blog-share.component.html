@@ -58,10 +58,9 @@
 <!--  </div>-->
 <!--&lt;!&ndash;  <input class="btn btn-primary" type="submit" value="Update">&ndash;&gt;-->
 <!--</form>-->
-
-
-
 <ng-template #loggedOut>
   <strong>Please Login!!!</strong>
-  <a class="btn btn-primary" href="auth/login-user">Login</a>
+  <a class="btn btn-primary" (click)="redirect()">Login</a>
 </ng-template>
+<router-outlet></router-outlet>
+

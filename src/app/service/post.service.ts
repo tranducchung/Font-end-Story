@@ -26,4 +26,13 @@ export class PostService {
   update(blog: Blog): Observable<Blog> {
     return this.http.put<Blog>(`${this.API_URL_BLOG}/${blog.id}`, blog);
   }
+  seachByTitle(title: string): Observable<Blog[]> {
+    return this.http.get<Blog[]>(`${this.API_URL_BLOG}/user/searchall?title=${title}`);
+  }
+  getAllBlogByAllUser(): Observable<Blog[]> {
+    return this.http.get<Blog[]>(`${this.API_URL_BLOG}-getall`);
+  }
+  getBlogByHashTag(hashTag: string): Observable<Blog[]> {
+    return this.http.get<Blog[]>(`${this.API_URL_BLOG}/hashtag/${hashTag}`);
+  }
 }

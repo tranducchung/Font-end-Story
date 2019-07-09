@@ -8,8 +8,11 @@ import {Blog, Notification, User} from '../user/ipost';
 })
 export class UserService {
   private API_USER = 'http://localhost:8080/api/users';
-  private API_SHARE = 'http://localhost:8080/api/notifi/user';
-  private API_DELETEBLOGSHARE = 'http://localhost:8080/api/oneNotifi';
+
+
+  private API_SHARE = 'http://localhost:8080/api/notifi/userReceive';
+  private API_DELETEBLOGSHARE = 'http://localhost:8080/api/notifi/delete';
+
   constructor(private http: HttpClient) {
   }
   getUsers(): Observable<User[]> {
@@ -29,6 +32,9 @@ export class UserService {
   }
   deleteBlogShare(id: number): Observable<any> {
     return this.http.delete<any>(`${this.API_DELETEBLOGSHARE}/${id}`);
+  }
+  shareBlogByEmail(idUser: number, idBlog: number): Observable<any> {
+    return this.http.get<any>(`${this.API_USER}/shareToUser/byEmail/${idUser}/blogs/${idBlog}`);
   }
 }
 
