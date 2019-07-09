@@ -1,29 +1,45 @@
 <div *ngIf="info.token; else loggedOut">
+  <h2 class="text-center">Write Blog</h2>
+  <form [formGroup]="blogForm" (ngSubmit)="onSubmit()" class="col-md-6 offset-md-3">
 
-<h2 class="text-center">Update Blog</h2>
-<form [formGroup]="blogForm" (ngSubmit)="onSubmit()" class="col-md-6 offset-md-3">
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Title</label>
-    <ckeditor id="exampleFormControlInput1" formControlName="title"> </ckeditor>
-  </div>
-  <div *ngIf="blogForm.get('title').invalid && blogForm.get('title').touched" style="color: red">
-    The title section must not be blank and have a minimum length of 2
-  </div>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" formControlName="title">
+    </div>
+    <div *ngIf="blogForm.get('title').invalid && blogForm.get('title').touched" style="color: red">
+      The title section must not be blank and have a minimum length of 2
+    </div>
 
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Content</label>
-    <ckeditor  id="exampleFormControlTextarea1" rows="3" formControlName="content"></ckeditor>
-  </div>
-  <div *ngIf="blogForm.get('content').invalid && blogForm.get('content').touched" style="color: red">
-    The title section must not be blank and have a minimum length of 2
-  </div>
+    <div class="form-group">
+      <label for="content">Content</label>
+      <ckeditor  formControlName="content" id="content" class="content"></ckeditor>
+    </div>
+    <div *ngIf="blogForm.get('content').invalid && blogForm.get('content').touched" style="color: red">
+      The content section must not be blank and have a minimum length of 2
+    </div>
 
-  <input class="btn btn-primary" type="submit" value="Update">
-</form>
+    <div class="form-group">
+      <label for="urlVideo">ID Video Youtube</label>
+      <p>Example: https://www.youtube.com/watch?v=<span style="color: red;"><b>KMssEAd8aU8</b></span> <= This is ID video</p>
+      <input type="text" class="form-control" id="urlVideo" formControlName="urlVideo">
+    </div>
+    <div *ngIf="blogForm.get('urlVideo').invalid && blogForm.get('urlVideo').touched" style="color: red">
+      Url Youtube is invalid, Please read the instructions above !! Thank
+    </div>
+
+    <div class="form-group">
+      <label for="hashTags">HashTags</label>
+      <input type="text" class="form-control" id="hashTags" formControlName="hashTags">
+    </div>
+    <div *ngIf="blogForm.get('hashTags').invalid && blogForm.get('hashTags').touched" style="color: red">
+      The first is #
+    </div>
+
+    <input class="btn btn-primary" type="submit" value="Add">
+  </form>
 </div>
 
 <ng-template #loggedOut>
   <strong>Please Login!!!</strong>
   <a class="btn btn-primary" href="auth/login">Login</a>
 </ng-template>
-
