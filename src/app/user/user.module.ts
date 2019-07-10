@@ -18,7 +18,7 @@ import {NotificationComponent} from './notification/notification.component';
 import {DetailBlogShareComponent} from './detail-blog-share/detail-blog-share.component';
 import { NgxLinkifyjsModule } from 'ngx-linkifyjs';
 import {ExportAsModule} from 'ngx-export-as';
-import { AllUserComponent } from './all-user/all-user.component';
+import { PostAlbumImgComponent } from './post-album-img/post-album-img.component';
 
 
 @NgModule({
@@ -33,7 +33,7 @@ import { AllUserComponent } from './all-user/all-user.component';
     FormUploadComponent,
     NotificationComponent,
     DetailBlogShareComponent,
-    AllUserComponent,
+    PostAlbumImgComponent,
   ],
   imports: [
     CommonModule,

@@ -57,9 +57,7 @@ export class LoginComponent implements OnInit {
           window.location.href = this.sessionService.getLinkBlog();
           window.sessionStorage.removeItem(this.sessionService.getLinkBlog());
         } else {
-          this.router.navigate(['/home']);
-          setTimeout(this.reloadPage, 10);
-          // this.reloadPage();
+          window.location.href = 'http://localhost:4200/home';
         }
       },
       error => {
@@ -70,9 +68,4 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
-  reloadPage() {
-    window.location.reload();
-  }
-
 }

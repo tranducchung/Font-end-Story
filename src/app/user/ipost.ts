@@ -37,5 +37,10 @@ export interface Notification {
   idUser: number;
   idBlog: number;
   userReceive: User;
+}
 
+export interface AlbumImg {
+  id: number;
+  title: string;
+  user: User;
 }

@@ -14,7 +14,6 @@ import {TokenService} from '../../auth/token.service';
 
 
 export class PostBlogComponent implements OnInit {
-
   blogForm: FormGroup;
   blog: Blog;
   info: any;
@@ -39,7 +38,7 @@ export class PostBlogComponent implements OnInit {
       title: ['', [Validators.required, Validators.minLength(2)]],
       content: ['', [Validators.required, Validators.minLength(2)]],
       urlVideo: ['', [Validators.pattern('^(https?\\:\\/\\/)?(www\\.)?(youtube\\.com|youtu\\.?be)\\/.+$')]],
-      hashTags: ['', [Validators.pattern('(?:\\s|^)#[A-Za-z0-9\\-\\.\\_]+(?:\\s|$)')]]
+      hashTags: ['']
     });
   }
 
@@ -51,6 +50,7 @@ export class PostBlogComponent implements OnInit {
         ...value
       };
       this.postService.addBlog(data).subscribe(next => {
+        console.log(next);
         this.router.navigate(['/listBlog']);
       }, error => console.log(error));
     } else {
