@@ -7,7 +7,6 @@ import {PostBlogComponent} from './user/post-blog/post-blog.component';
 import {BlogComponent} from './user/blog/blog.component';
 import {NotificationComponent} from './user/notification/notification.component';
 import {SocketComponent} from './socket/socket.component';
-import {AllUserComponent} from './user/all-user/all-user.component';
 
 
 const routes: Routes = [
@@ -45,10 +44,7 @@ const routes: Routes = [
     component: SocketComponent
 
   },
-  {
-    path: 'allBlog',
-    component: AllUserComponent
-  }
+
 ];
 
 @NgModule({

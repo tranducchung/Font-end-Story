@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 <div *ngIf="info.token; else loggedOut">
 
-  =======
   <!--<div class="container" style="height: auto">-->
   <!--  <header class="row">-->
   <!--    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
@@ -232,6 +230,6 @@
 
   <ng-template #loggedOut>
     <strong>Please Login!!!</strong>
-    <a class="btn btn-primary" routerLink="auth/login">Login</a>
+    <a class="btn btn-primary" href="auth/login">Login</a>
     <router-outlet></router-outlet>
   </ng-template>
