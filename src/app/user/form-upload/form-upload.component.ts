@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {UploadFileService} from '../../service/upload-file.service';
-import {HttpClient, HttpErrorResponse, HttpEventType, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Img} from '../ipost';
 import {TokenService} from '../../auth/token.service';
@@ -25,19 +24,6 @@ export class FormUploadComponent implements OnInit {
   selectFile(event) {
     this.uploadService.selectFile(event);
   }
-
-  // upload() {
-  //   this.uploadService.uploadFile()
-  //     .subscribe(
-  //       data => {
-  //         console.log('oke uploaded !!!');
-  //         alert('Upload File Success');
-  //       },
-  //       (err: HttpErrorResponse) => {
-  //         console.log(err.message);
-  //       }
-  //     );
-  // }
 
   showFiles(enable: boolean) {
     this.showFile = enable;

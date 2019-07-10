@@ -160,20 +160,26 @@
         <div class="content" style="text-align: center">
           <a [routerLink]="['/listBlog',blog.id,'detail']" [innerHTML]="blog.title"
              style="text-decoration: none;font-size: 25px; font-weight: 700"></a>
-          <h6>Since: {{blog.createDate}}</h6>
-          <div *ngIf="i===indexOfShow">
-            <div id="demo" class="collapse in">
-              <div [innerHTML]=blog.content></div>
-            </div>
+          <h6 style="font-size: 12px; position: absolute; left: 245px">Since: {{blog.createDate}}</h6>
+          <h6 style="font-size: 12px; position: relative; left: 62px">Post by: {{blog.user.username}}</h6>
+          <div>
+            <img src="https://taocover.com/uploads/worigin/2017/06/30/frame-co-4-la5955c0e08ed41_6d9166ec71b9fd312ab5d78951d5e066.jpg" alt="" style="width: 100%; height: 300px">
           </div>
-          <button (click)="readMore(i); showContent(true)" *ngIf="!showButton" type="button"
-                  class="btn btn-outline-success" data-toggle="collapse" data-target="#demo">
-            Read More
-          </button>
-          <button (click)=" showContent(false)" *ngIf="showButton" type="button" class="btn btn-outline-success"
-                  data-toggle="collapse" data-target="#demo">
-            Close Blog
-          </button>
+          <div style="margin-top: 20px">
+            <div *ngIf="i===indexOfShow">
+              <div id="demo" class="collapse in">
+                <div [innerHTML]=blog.content></div>
+              </div>
+            </div>
+            <button (click)="readMore(i); showContent(true)" *ngIf="!showButton" type="button"
+                    class="btn btn-outline-success" data-toggle="collapse" data-target="#demo">
+              Read More
+            </button>
+            <button (click)=" showContent(false)" *ngIf="showButton" type="button" class="btn btn-outline-success"
+                    data-toggle="collapse" data-target="#demo">
+              Close Blog
+            </button>
+          </div>
           <hr style="margin-top: 60px">
         </div>
       </div>

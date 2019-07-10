@@ -43,7 +43,7 @@ export class PostAlbumImgComponent implements OnInit {
         console.log(next);
         this.uploadService.uploadFile(next).subscribe(() => {
             console.log('oke uploaded !!!');
-            alert('Upload File Success');
+            alert('Create Album success');
           },
           (err: HttpErrorResponse) => {
             console.log(err.message);
