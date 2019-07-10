@@ -16,9 +16,11 @@ import {BlogShareComponent} from './blog-share/blog-share.component';
 import {FormUploadComponent} from './form-upload/form-upload.component';
 import {NotificationComponent} from './notification/notification.component';
 import {DetailBlogShareComponent} from './detail-blog-share/detail-blog-share.component';
-import { NgxLinkifyjsModule } from 'ngx-linkifyjs';
+import {NgxLinkifyjsModule} from 'ngx-linkifyjs';
 import {ExportAsModule} from 'ngx-export-as';
 import {JwSocialButtonsModule} from 'jw-angular-social-buttons';
+
+import { PostAlbumImgComponent } from './post-album-img/post-album-img.component';
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import {JwSocialButtonsModule} from 'jw-angular-social-buttons';
     FormUploadComponent,
     NotificationComponent,
     DetailBlogShareComponent,
+    PostAlbumImgComponent
   ],
   imports: [
     CommonModule,

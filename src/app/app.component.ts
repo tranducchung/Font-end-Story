@@ -35,10 +35,6 @@ export class AppComponent implements OnInit {
 
   logOut() {
     this.tokenService.signOut();
-    this.router.navigate(['auth/login']);
-    setTimeout(this.reloadPage, 1);
-  }
-  reloadPage() {
-    window.location.reload();
+    window.location.href = 'http://localhost:4200/auth/login';
   }
 }
