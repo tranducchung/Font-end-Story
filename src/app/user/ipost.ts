@@ -27,7 +27,7 @@ export interface User {
 export interface Img {
   id: number;
   srcImg: string;
-  user: User;
+  blogImg: AlbumImg;
 }
 
 export interface Notification {

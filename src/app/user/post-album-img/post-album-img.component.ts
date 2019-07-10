@@ -13,15 +13,13 @@ import {PostAlbumImgService} from '../../service/post-album-img.service';
   styleUrls: ['./post-album-img.component.scss']
 })
 export class PostAlbumImgComponent implements OnInit {
-  showFile = false;
-  fileUploads: Observable<Img[]>;
-  albumForm: FormGroup;
   album: AlbumImg;
-
+  albumForm: FormGroup;
   constructor(
     private tokenService: TokenService,
     private fb: FormBuilder,
-    private albumService: PostAlbumImgService
+    private albumService: PostAlbumImgService,
+    private uploadService: UploadFileService
   ) {
   }
 
@@ -30,10 +28,10 @@ export class PostAlbumImgComponent implements OnInit {
       title: ['', [Validators.required]],
     });
   }
-
   selectFile(event) {
-    this.albumService.selectFile(event);
+    this.uploadService.selectFile(event);
   }
+
   onSubmit() {
     if (this.albumForm.valid) {
       const {value} = this.albumForm;
@@ -41,11 +39,16 @@ export class PostAlbumImgComponent implements OnInit {
         ...this.album,
         ...value
       };
-      console.log(data);
-      this.albumService.createAlbum(data.toString()).subscribe(next => {
-        console.log('Creat album success');
+      this.albumService.creatBlogImg(data).subscribe(next => {
         console.log(next);
-      }, error => console.log('AAAAAA' + error));
+        this.uploadService.uploadFile(next).subscribe(() => {
+            console.log('oke uploaded !!!');
+            alert('Upload File Success');
+          },
+          (err: HttpErrorResponse) => {
+            console.log(err.message);
+          });
+      }, error => console.log(error));
     }
   }
 }
