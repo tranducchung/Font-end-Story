@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AllUserComponent } from './all-user.component';
+import { PostAlbumImgComponent } from './post-album-img.component';
 
-describe('AllUserComponent', () => {
-  let component: AllUserComponent;
-  let fixture: ComponentFixture<AllUserComponent>;
+describe('PostAlbumImgComponent', () => {
+  let component: PostAlbumImgComponent;
+  let fixture: ComponentFixture<PostAlbumImgComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AllUserComponent ]
+      declarations: [ PostAlbumImgComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AllUserComponent);
+    fixture = TestBed.createComponent(PostAlbumImgComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
