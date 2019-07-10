@@ -26,18 +26,18 @@ export class FormUploadComponent implements OnInit {
     this.uploadService.selectFile(event);
   }
 
-  upload() {
-    this.uploadService.uploadFile()
-      .subscribe(
-        data => {
-          console.log('oke uploaded !!!');
-          alert('Upload File Success');
-        },
-        (err: HttpErrorResponse) => {
-          console.log(err.message);
-        }
-      );
-  }
+  // upload() {
+  //   this.uploadService.uploadFile()
+  //     .subscribe(
+  //       data => {
+  //         console.log('oke uploaded !!!');
+  //         alert('Upload File Success');
+  //       },
+  //       (err: HttpErrorResponse) => {
+  //         console.log(err.message);
+  //       }
+  //     );
+  // }
 
   showFiles(enable: boolean) {
     this.showFile = enable;

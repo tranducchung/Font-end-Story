@@ -8,7 +8,7 @@ import {Img} from '../user/ipost';
 })
 export class UploadFileService {
 
-  private API_UPLOAD = 'http://localhost:8080/api/upload';
+  private API_UPLOAD = 'http://localhost:8080/api/upload/multi';
   constructor(private http: HttpClient) {}
   private myFiles: string[] = [];
   private mess: string;
@@ -33,13 +33,13 @@ export class UploadFileService {
     }
   }
 
-  uploadFile(): Observable<Img[]> {
+  uploadFile(id: number): Observable<Img[]> {
     const formData = new FormData();
     for (let i = 0; i < this.myFiles.length; i++) {
       formData.append('files', this.myFiles[i]);
     }
     this.myFiles = [];
-    return this.http.post<Img[]>(`${this.API_UPLOAD}/multi`, formData);
+    return this.http.post<Img[]>(`${this.API_UPLOAD}/${id}`, formData);
   }
 
   getAllFile(): Observable<Img[]> {
