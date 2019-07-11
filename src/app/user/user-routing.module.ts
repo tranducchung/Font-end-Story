@@ -7,6 +7,8 @@ import {BlogManagementComponent} from './blog-management/blog-management.compone
 import {BlogShareComponent} from './blog-share/blog-share.component';
 import {FormUploadComponent} from './form-upload/form-upload.component';
 import {DetailBlogShareComponent} from './detail-blog-share/detail-blog-share.component';
+import {AlbumDetailComponent} from './album-detail/album-detail.component';
+import {DetailAlbumShareComponent} from './detail-album-share/detail-album-share.component';
 
 const routes: Routes = [
   {
@@ -37,6 +39,14 @@ const routes: Routes = [
     path: 'notification/:idUser/blog/:idBlog',
     component: DetailBlogShareComponent,
     pathMatch: 'full'
+  },
+  {
+    path: 'myAlbum/:id/detail',
+    component: AlbumDetailComponent
+  },
+  {
+    path: 'notification/:idUserShare/blogImg/:idBlogShare',
+    component: DetailAlbumShareComponent
   }
 ];
 

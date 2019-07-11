@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Blog, Notification} from '../ipost';
+import {AlbumImg, Blog, Notification} from '../ipost';
 import {UserService} from '../../service/user.service';
 import {TokenService} from '../../auth/token.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {and} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-notification',
@@ -28,7 +29,9 @@ export class NotificationComponent implements OnInit {
       email: this.tokenService.getEmail(),
       authorities: this.tokenService.getAuthor(),
     };
-    this.userService.getListNotification().subscribe(next => (this.listNotifacation = next), error => console.log(error));
+    this.userService.getListNotification().subscribe(next => {
+      this.listNotifacation = next;
+    }, error => console.log(error));
   }
 
   delete(i) {

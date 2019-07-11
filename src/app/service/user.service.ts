@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Blog, Notification, User} from '../user/ipost';
+import {AlbumImg, Blog, Notification, User} from '../user/ipost';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +32,12 @@ export class UserService {
   }
   shareBlogByEmail(idUser: number, idBlog: number): Observable<any> {
     return this.http.get<any>(`${this.API_USER}/shareToUser/byEmail/${idUser}/blogs/${idBlog}`);
+  }
+  shareBlogImgSystem(idUser: number, idBlog: number): Observable<any> {
+    return this.http.get<any>(`${this.API_USER}/shareToUser/${idUser}/blogImg/${idBlog}`);
+  }
+  shareBlogImgGmail(idUser: number, idBlog: number): Observable<any> {
+    return this.http.get<any>(`${this.API_USER}/shareToUser/byEmail/${idUser}/blogImg/${idBlog}`);
   }
 }
 
