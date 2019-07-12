@@ -31,6 +31,9 @@ export class NotificationComponent implements OnInit {
     };
     this.userService.getListNotification().subscribe(next => {
       this.listNotifacation = next;
+      // tslint:disable-next-line:max-line-length
+      console.log(next[0].userShare + 'share to you his album IMG:' + ' http://localhost:4200/notification/' + next[0].idUser + '/blogImg/' + next[0].idBlog);
+      console.log(next[0].idUser + '/blog/' + next[0].idBlog);
     }, error => console.log(error));
   }
 

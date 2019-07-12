@@ -22,8 +22,10 @@
           <tbody>
           <tr *ngFor="let notifi of listNotifacation, index as i">
             <th scope="row">{{i+1}}</th>
-            <td *ngIf="notifi.content === 'Blog'"><button type="button" class="btn btn-link" [routerLink]="['/notification',notifi.idUser,'blog',notifi.idBlog]">{{notifi.content}}</button></td>
-            <td *ngIf="notifi.content === 'BlogImg'"><button type="button" class="btn btn-link" [routerLink]="['/notification',notifi.idUser,'blogImg',notifi.idBlog]">{{notifi.content}}</button></td>
+            <td *ngIf="notifi.content === notifi.idUser + '/blog/' + notifi.idBlog"><button type="button" class="btn btn-link" [routerLink]="['/notification',notifi.idUser,'blog',notifi.idBlog]">{{notifi.content}}</button></td>
+            <td *ngIf="notifi.content === notifi.userReceive.id + '/blogImg/' + notifi.idBlog"><button type="button" class="btn btn-link" [routerLink]="['/notification',notifi.idUser,'blogImg',notifi.idBlog]">{{notifi.content}}</button></td>
+            <td *ngIf="notifi.content === notifi.userShare + ' share to you his album IMG:' + ' http://localhost:4200/notification/' + notifi.idUser + '/blogImg/' + notifi.idBlog"><p>{{notifi.content}}</p></td>
+            <td *ngIf="notifi.content === notifi.userShare + ' shared to you his blog by Email:' + ' http://localhost:4200/notification/' + notifi.idUser + '/blog/' + notifi.idBlog"><p>{{notifi.content}}</p></td>
             <td>{{notifi.userShare}}</td>
             <td><button type="button" class="btn btn-danger" (click)="delete(i)"><i class="fas fa-trash-alt"></i></button></td>
           </tr>

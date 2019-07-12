@@ -17,6 +17,7 @@
     text-align: center;
   }
 </style>
+<div *ngIf="info.token; else loggedOut">
 <div class="container" style="height: auto">
   <header class="row">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -126,3 +127,10 @@
   </footer>
   <hr style="margin-top: 60px;">
 </div>
+</div>
+
+<ng-template #loggedOut>
+  <strong>Please Login!!!</strong>
+  <a class="btn btn-primary" (click)="redirect()">Login</a>
+</ng-template>
+<router-outlet></router-outlet>
