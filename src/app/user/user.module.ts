@@ -19,6 +19,9 @@ import {DetailBlogShareComponent} from './detail-blog-share/detail-blog-share.co
 import { NgxLinkifyjsModule } from 'ngx-linkifyjs';
 import {ExportAsModule} from 'ngx-export-as';
 import { PostAlbumImgComponent } from './post-album-img/post-album-img.component';
+import { MyAlbumComponent } from './my-album/my-album.component';
+import { AlbumDetailComponent } from './album-detail/album-detail.component';
+import { DetailAlbumShareComponent } from './detail-album-share/detail-album-share.component';
 
 
 @NgModule({
@@ -34,6 +37,9 @@ import { PostAlbumImgComponent } from './post-album-img/post-album-img.component
     NotificationComponent,
     DetailBlogShareComponent,
     PostAlbumImgComponent,
+    MyAlbumComponent,
+    AlbumDetailComponent,
+    DetailAlbumShareComponent,
   ],
   imports: [
     CommonModule,

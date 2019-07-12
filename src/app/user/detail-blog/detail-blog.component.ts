@@ -83,10 +83,11 @@ export class DetailBlogComponent implements OnInit {
     this.userService.getUsers().subscribe(next => {
       this.listUser = next;
       this.checkDuplicateUser(this.listUser, this.listUserDisplay);
-    } , error => (this.listUser = []));
+    }, error => (this.listUser = []));
   }
 
   shareBlog(idUser: number, idBlog: number) {
+    this.userService.shareBlog(idUser, idBlog).subscribe(next => console.log('Share Blog success'), error => console.log(error));
     console.log(idUser);
     console.log(idBlog);
 
