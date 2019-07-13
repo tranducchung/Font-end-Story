@@ -21,4 +21,19 @@ export class MyAlbumComponent implements OnInit {
       , error => console.log(error));
   }
 
+  delete(i) {
+    const r = confirm('Do you want delete this blog?');
+    if (r) {
+      const album = this.listAlbum[i];
+      this.albumService.deleteBlogImg(album.id).subscribe(() => {
+        this.albumService.getAllBlogImg().subscribe(next => {
+          this.listAlbum = next;
+        }, err => {
+          if (err.status === 404) {
+            this.listAlbum = null;
+          }
+        });
+      }, error => console.log('aaa' + error));
+    }
+  }
 }

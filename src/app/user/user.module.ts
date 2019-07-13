@@ -22,6 +22,7 @@ import { PostAlbumImgComponent } from './post-album-img/post-album-img.component
 import { MyAlbumComponent } from './my-album/my-album.component';
 import { AlbumDetailComponent } from './album-detail/album-detail.component';
 import { DetailAlbumShareComponent } from './detail-album-share/detail-album-share.component';
+import { CommentComponent } from './comment/comment.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { DetailAlbumShareComponent } from './detail-album-share/detail-album-sha
     MyAlbumComponent,
     AlbumDetailComponent,
     DetailAlbumShareComponent,
+    CommentComponent,
   ],
   imports: [
     CommonModule,

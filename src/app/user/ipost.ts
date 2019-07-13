@@ -7,6 +7,7 @@ export interface Blog {
     createDate: string;
     hashTags: string;
     user: User;
+    commentList: Comment[];
 }
 
 export interface Roles {
@@ -42,5 +43,12 @@ export interface AlbumImg {
   id: number;
   title: string;
   listImg: Img[];
+  user: User;
+}
+
+export interface Comment {
+  id: number;
+  content: string;
+  blog: Blog;
   user: User;
 }

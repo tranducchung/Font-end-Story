@@ -53,19 +53,22 @@
   </header>
   <div class="row" style="margin-top: 50px; font-family: inherit; font-style: italic">
     <article class="col-sm-8 text-center">
-      <p style="color: #1da0f2; font-size: 30px; background-color: pink">List My Album</p>
-      <div *ngFor="let album of listAlbum, index as i">
-        <div *ngIf="album.listImg">
-          <div class="panel-body">
-            <div class="img" style="margin-left: 20px">
-              <a [routerLink]="[album.id,'detail']">
-                <img src="http://localhost:8080/resources/upload-dir/{{album.listImg[0].srcImg}}" alt="{{album.listImg[0].srcImg}}" style="width: 100%; height: 150px">
-              </a>
-              <div class="desc">{{album.title}}</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <p style="color: #1da0f2; font-size: 30px;">List My Album</p>
+         <div *ngFor="let album of listAlbum, index as i">
+           <div *ngIf="album.listImg">
+             <div class="panel-body">
+                 <div class="img" style="margin-left: 20px">
+                   <a [routerLink]="[album.id,'detail']">
+                     <img src="http://localhost:8080/resources/upload-dir/{{album.listImg[0].srcImg}}" alt="{{album.listImg[0].srcImg}}" style="width: 100%; height: 150px">
+                   </a>
+                   <div class="desc" style="background-color: pink">
+                     <div>{{album.title}}</div>
+                     <div style="position: relative; top: -194px; left: 90px"><button (click)="delete(i)"  type="button" class="btn btn-link"><i class="fas fa-times"></i></button></div>
+                   </div>
+                 </div>
+             </div>
+           </div>
+         </div>
     </article>
     <aside class="col-sm-4">
       <div>

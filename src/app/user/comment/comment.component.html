@@ -1,0 +1,32 @@
+<form [formGroup]="commentForm" (ngSubmit)="onSubmit(blog.id)" class="col-md-6 offset-md-3">
+  <div class="form-group">
+    <label for="comment" style="color: #1da0f2">Comment</label>
+    <input type="text" class="form-control" id="comment" formControlName="content">
+  </div>
+  <input class="btn btn-primary" type="submit" value="Add">
+</form>
+<div class="page-header">
+  <h1>
+    <small class="pull-right">45 comments</small>
+  </h1>
+</div>
+<hr/>
+<div *ngFor="let com of blog.commentList">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="comments-list">
+        <div class="media">
+          <div class="media-body" style="margin-left: 135px; margin-bottom: -24px">
+            <h4 class="media-heading user_name" style="font-size: 16px"><span style="color: #385898">{{com.user.username}}</span>: {{com.content}}</h4>
+            <p>
+              <small style="color: #90949c"><a href="">Like</a> - <a href="">Reply</a></small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr style="margin-left: 135px;margin-bottom: 10px"/>
+</div>
+
+

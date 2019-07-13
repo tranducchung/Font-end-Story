@@ -24,4 +24,7 @@ export class PostAlbumImgService {
   getBlogImgShare(idUserShare: number, idBlogImgShare: number): Observable<AlbumImg> {
     return this.http.get<AlbumImg>(`${this.ALBUM_API}/${idBlogImgShare}/user/${idUserShare}`);
   }
+  deleteBlogImg(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.ALBUM_API}/${id}`);
+  }
 }
