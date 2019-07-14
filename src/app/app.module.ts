@@ -15,6 +15,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SocketComponent} from './socket/socket.component';
 import {ToastrModule} from 'ngx-toastr';
 import {NgxLinkifyjsModule} from 'ngx-linkifyjs';
+import { Oauth2Component } from './oauth2/oauth2.component';
 // import {EmbedVideo} from 'ngx-embed-video/dist';
 
 @NgModule({
@@ -24,6 +25,7 @@ import {NgxLinkifyjsModule} from 'ngx-linkifyjs';
     LoginComponent,
     RegisterComponent,
     SocketComponent,
+    Oauth2Component,
   ],
   imports: [
     BrowserModule,

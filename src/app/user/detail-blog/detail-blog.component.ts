@@ -49,16 +49,9 @@ export class DetailBlogComponent implements OnInit {
     private route: ActivatedRoute,
     private userService: UserService,
     private tokenService: TokenService,
-    private exportAsService: ExportAsService,
     private router: Router,
   ) {
   }
-
-  exportAsConfig: ExportAsConfig = {
-    type: 'pdf',
-    elementId: 'pdftext',
-    fileName: 'mypdf',
-  };
 
   ngOnInit() {
     this.info = {
@@ -80,25 +73,26 @@ export class DetailBlogComponent implements OnInit {
       console.log(error);
       this.blog = null;
     });
+
     this.userService.getUsers().subscribe(next => {
       this.listUser = next;
       this.checkDuplicateUser(this.listUser, this.listUserDisplay);
-    } , error => (this.listUser = []));
+    }, error => (this.listUser = []));
   }
 
   shareBlog(idUser: number, idBlog: number) {
-    console.log(idUser);
-    console.log(idBlog);
+    this.userService.shareBlog(idUser, idBlog).subscribe(next => {
+      console.log(next);
+      alert('Share to user id = ' + idUser + 'success');
+    }, error => console.log(error));
 
   }
 
   swapURL(url: string) {
     const keyUrl: string = url.slice(32, 44);
     console.log(keyUrl);
-    // tslint:disable-next-line:max-line-length
     console.log('<iframe width="560" height="315" src="https://www.youtube.com/embed/' + keyUrl + '' +
       ' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
-    // tslint:disable-next-line:max-line-length
     return '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + keyUrl +
       '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
   }

@@ -22,7 +22,7 @@ export class BlogManagementComponent implements OnInit {
 
   ngOnInit() {
     this.postService.getBlogs().subscribe(next =>
-      (this.listBlog = next), error => (this.listBlog = []));
+      this.listBlog = next, error => (this.listBlog = []));
     this.info = {
       token: this.tokenService.getToken(),
       username: this.tokenService.getUsername(),

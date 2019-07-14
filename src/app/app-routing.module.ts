@@ -8,6 +8,7 @@ import {BlogComponent} from './user/blog/blog.component';
 import {NotificationComponent} from './user/notification/notification.component';
 import {SocketComponent} from './socket/socket.component';
 import {PostAlbumImgComponent} from './user/post-album-img/post-album-img.component';
+import {Oauth2Component} from './oauth2/oauth2.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,10 @@ const routes: Routes = [
   {
     path: 'albumImg',
     component: PostAlbumImgComponent
+  },
+  {
+    path: 'oauth2/redirect',
+    component: Oauth2Component
   }
 ];
 

@@ -14,6 +14,7 @@ export class EditBlogComponent implements OnInit {
   blog: Blog;
   blogForm: FormGroup;
   info: any;
+
   constructor(
     private postService: PostService,
     private fb: FormBuilder,
