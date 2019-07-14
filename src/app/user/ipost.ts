@@ -49,6 +49,12 @@ export interface AlbumImg {
 export interface Comment {
   id: number;
   content: string;
+  replyList: ReplyCommnent[];
   blog: Blog;
   user: User;
+}
+
+export interface ReplyCommnent {
+  id: number;
+  content: string;
 }

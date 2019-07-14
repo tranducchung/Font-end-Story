@@ -1,42 +1,80 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Blog, Comment} from '../ipost';
+import {Blog, Comment, ReplyCommnent} from '../ipost';
 import {CommentService} from '../../service/comment.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PostService} from '../../service/post.service';
+
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
   styleUrls: ['./comment.component.scss']
 })
 export class CommentComponent implements OnInit {
-  listComment: Comment[];
   commentForm: FormGroup;
   comment: Comment;
+  replyForm: FormGroup;
+  repComment: ReplyCommnent;
+  check = false;
+  indexOfShow = -1;
   @Input() blog: Blog;
+
   constructor(
     private commentService: CommentService,
     private fb: FormBuilder,
     private postService: PostService
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
-    this.commentForm = this.fb.group( {
-      content: ['']
+    this.commentForm = this.fb.group({
+        content: ['', [Validators.required]]
+      }
+    );
+    this.replyForm = this.fb.group({
+        content: ['', [Validators.required]]
       }
     );
   }
+
   onSubmit(idBlog: number) {
-    const {value} = this.commentForm;
-    const data = {
-      ...this.comment,
-      ...value
-    };
-    this.commentService.createComment(idBlog, data).subscribe(() => {
-      console.log('Comment Success');
-      this.commentForm.reset({
-        content: ''
-      });
-      this.postService.getBlogById(this.blog.id).subscribe( next => this.blog = next, error => console.log(error));
-    }, error => console.log(error));
+    if (this.commentForm.valid) {
+      const {value} = this.commentForm;
+      const data = {
+        ...this.comment,
+        ...value
+      };
+      this.commentService.createComment(idBlog, data).subscribe(() => {
+        console.log('Comment Success');
+        this.commentForm.reset({
+          content: ''
+        });
+        this.postService.getBlogById(this.blog.id).subscribe(next => this.blog = next, error => console.log(error));
+      }, error => console.log(error));
+    }
+  }
+
+  reply(anble: boolean) {
+    this.check = anble;
+  }
+
+  readReply(i) {
+    this.indexOfShow = i;
+  }
+
+  submit(idRep: number) {
+      if (this.replyForm.valid) {
+        const {value} = this.replyForm;
+        const data = {
+          ... this.repComment,
+          ... value
+        };
+        this.commentService.createRepComment(idRep, data).subscribe(() => {
+          console.log('Reply success');
+          this.replyForm.reset({
+            content: ''
+          });
+          this.postService.getBlogById(this.blog.id).subscribe(next => this.blog = next, error => console.log(error));
+        }, error => console.log(error));
+      }
   }
 }
