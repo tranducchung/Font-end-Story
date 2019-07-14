@@ -1,26 +1,48 @@
-<form [formGroup]="commentForm" (ngSubmit)="onSubmit(blog.id)" class="col-md-6 offset-md-3">
+<form [formGroup]="commentForm" (ngSubmit)="onSubmit(blog.id)" class="col-md-10 offset-md-1">
   <div class="form-group">
     <label for="comment" style="color: #1da0f2">Comment</label>
-    <input type="text" class="form-control" id="comment" formControlName="content">
+    <textarea type="text" class="form-control" id="comment" formControlName="content"></textarea>
   </div>
   <input class="btn btn-primary" type="submit" value="Add">
 </form>
 <div class="page-header">
   <h1>
-    <small class="pull-right">45 comments</small>
+    <small class="pull-right">{{blog.commentList.length}} Comment</small>
   </h1>
+  <span>Comment</span>
 </div>
 <hr/>
-<div *ngFor="let com of blog.commentList">
+<div *ngFor="let com of blog.commentList, index as i">
   <div class="row">
     <div class="col-md-12">
       <div class="comments-list">
         <div class="media">
           <div class="media-body" style="margin-left: 135px; margin-bottom: -24px">
-            <h4 class="media-heading user_name" style="font-size: 16px"><span style="color: #385898">{{com.user.username}}</span>: {{com.content}}</h4>
+            <div class="avatar">
+              <img src="https://ins.dkn.tv/wp-content/uploads/-000//1/_MAZ9112.jpg" alt="">
+            </div>
+            <h4 class="media-heading user_name" style="font-size: 16px">
+              <span style="color: #385898">{{com.user.username}}</span>: {{com.content}}</h4>
             <p>
-              <small style="color: #90949c"><a href="">Like</a> - <a href="">Reply</a></small>
+              <small style="color: #90949c"><a href="">Like</a> - <button class="btn btn-link reply" (click)="readReply(i)">Reply</button></small>
             </p>
+            <div *ngIf="indexOfShow === i">
+              <div *ngFor="let reply of com.replyList">
+                <div class="avatarRely">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT42KdF1tLjsApuRedABO9m4I-jTVZmTrugJt2ytGt6Zg_688JG" alt="">
+                </div>
+                <div class="commentReply" >{{reply.content}}</div>
+                <p style="margin-left: 100px">
+                  <small style="color: #90949c"><a href="">Like</a> - <a href="#">Share</a></small>
+                </p>
+              </div>
+              <form [formGroup]="replyForm" (ngSubmit)="submit(com.id)">
+                <div class="form-group">
+                  <input type="text" class="form-control" formControlName="content">
+                  <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -28,5 +50,8 @@
   </div>
   <hr style="margin-left: 135px;margin-bottom: 10px"/>
 </div>
+
+
+
 
 
