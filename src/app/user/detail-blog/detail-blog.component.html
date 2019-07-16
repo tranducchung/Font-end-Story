@@ -42,6 +42,13 @@
           <div style="margin-top: 13px">
           <ckbutton type="button" command="export" class="btn btn-outline-info" name="export" (click)="print()" >Export PDF</ckbutton>
         </div>
+        <br>
+        <div class="alert alert-success " role="alert" *ngIf="checkShareGmail" style="text-align: center">
+          Share Blog by Gmail success
+        </div>
+        <div class="alert alert-success " role="alert" *ngIf="checkShareBlog" style="text-align: center">
+          Share Blog success
+        </div>
         <hr>
         <app-comment [blog]="blog"></app-comment>
       </article>

@@ -5,13 +5,16 @@
     float: left;
     width: 200px;
   }
+
   div.img:hover {
     border: 1px solid #777;
   }
+
   div.img img {
-    width:100%;
+    width: 100%;
     height: auto;
   }
+
   div.desc {
     padding: 10px;
     text-align: center;
@@ -54,27 +57,29 @@
   <div class="row" style="margin-top: 50px; font-family: inherit; font-style: italic">
     <article class="col-sm-8 text-center">
       <div *ngIf="album" style="color: #1da0f2; font-size: 30px; background-color: pink">{{album.title}}</div>
-      <div>
-        <div *ngFor="let img of listImg, index as i">
+      <span>
+        <div>
           <div class="panel-body">
-            <div class="img" style="margin-left: 20px">
+            <div class="img" style="margin-left: 20px" *ngFor="let img of listImg, index as i">
               <a href="http://localhost:8080/resources/upload-dir/{{img.srcImg}}" target="_blank">
-                <img src="http://localhost:8080/resources/upload-dir/{{img.srcImg}}" alt="{{img.srcImg}}" style="width: 100%; height: 150px">
+                <img src="http://localhost:8080/resources/upload-dir/{{img.srcImg}}" alt="{{img.srcImg}}"
+                     style="width: 100%; height: 150px">
               </a>
-              <div class="desc" style="color: #1da0f2">Image {{i+1}}</div>
+              <div class="desc" style="color: #1da0f2">Image {{i + 1}}</div>
             </div>
           </div>
         </div>
-      </div>
-      <div style="position: absolute; bottom: 0; right: 0">
+      </span>
+      <div style="position: relative; bottom: 0; right: 60px;top: 10px; float: right">
         <div class="btn-group" style="margin-right: 10px">
           <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">
             Share Blog
           </button>
-          <div class="dropdown-menu" >
+          <div class="dropdown-menu">
             <div *ngFor="let user of listUserDisplay, index as i">
-              <button type="button" class="btn btn-link" (click)="shareBlog(user.id,album.id)">{{user.username}}</button>
+              <button type="button" class="btn btn-link"
+                      (click)="shareBlog(user.id,album.id)">{{user.username}}</button>
             </div>
           </div>
         </div>
@@ -83,11 +88,23 @@
                   aria-expanded="false">
             Share Gmail
           </button>
-          <div class="dropdown-menu" >
+          <div class="dropdown-menu">
             <div *ngFor="let user of listUserDisplay, index as i">
-              <button type="button" class="btn btn-link" (click)="shareBlogByGmail(user.id,album.id)">{{user.username}}</button>
+              <button type="button" class="btn btn-link"
+                      (click)="shareBlogByGmail(user.id,album.id)">{{user.username}}</button>
             </div>
           </div>
+        </div>
+      </div>
+      <br>
+      <div>
+        <div class="alert alert-success " role="alert" *ngIf="checkShareGmail"
+             style="text-align: center; position: absolute; left: 150px; bottom: -33px">
+          Share Blog by Gmail success
+        </div>
+        <div class="alert alert-success " role="alert" *ngIf="checkShareBlog"
+             style="text-align: center; position: absolute; left: 150px; bottom: -33px">
+          Share Blog success
         </div>
       </div>
     </article>
@@ -96,7 +113,8 @@
         <h6>ABOUT US</h6>
         <hr>
         <img src="https://i.ibb.co/7yq673s/TheCAT.jpg" width="100%">
-        <p style="margin-top: 15px">We are the CAT - owner this website. Thanks for your used this product. Contact me, please send by email : tranducchung.10@gmail.com  </p>
+        <p style="margin-top: 15px">We are the CAT - owner this website. Thanks for your used this product. Contact me,
+          please send by email : tranducchung.10@gmail.com </p>
       </div>
       <div style="margin-top: 30px">
         <h6>FOLLOW US</h6>

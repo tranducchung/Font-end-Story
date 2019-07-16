@@ -14,6 +14,8 @@ export class AlbumDetailComponent implements OnInit {
   album: AlbumImg;
   listImg: Img[];
   listUser: User[];
+  checkShareGmail = false;
+  checkShareBlog = false;
   info: any;
   listUserDisplay: User[] = [];
 
@@ -60,10 +62,16 @@ export class AlbumDetailComponent implements OnInit {
   }
 
   shareBlog(idUser: number, idAlbum: number) {
-    this.userService.shareBlogImgSystem(idUser, idAlbum).subscribe(next => console.log('Share Success'), error => console.log(error));
+    this.userService.shareBlogImgSystem(idUser, idAlbum).subscribe(next => {
+      this.checkShareBlog = true;
+      this.checkShareGmail = false;
+    }, error => console.log(error));
   }
 
   shareBlogByGmail(idUser: number, idAlbum: number) {
-    this.userService.shareBlogImgGmail(idUser, idAlbum).subscribe(() => console.log('Share to Gmail success'), error => console.log(error));
+    this.userService.shareBlogImgGmail(idUser, idAlbum).subscribe(() => {
+      this.checkShareBlog = false;
+      this.checkShareGmail = true;
+    }, error => console.log(error));
   }
 }

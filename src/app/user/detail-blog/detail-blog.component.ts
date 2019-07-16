@@ -21,6 +21,8 @@ export class DetailBlogComponent implements OnInit {
   listUser: User[];
   urlYT: string;
   info: any;
+  checkShareGmail = false;
+  checkShareBlog = false;
   listUserDisplay: User[] = [];
   options: NgxLinkifyOptions =
     {
@@ -88,7 +90,11 @@ export class DetailBlogComponent implements OnInit {
 
   shareBlog(idUser: number, idBlog: number) {
     this.userService.shareBlog(idUser, idBlog).subscribe(
-      next => console.log('Share Blog success'), error => console.log(error));
+      next => {
+        console.log('Share Blog success');
+        this.checkShareBlog = true;
+        this.checkShareGmail = false;
+      }, error => console.log(error));
     console.log(idUser);
     console.log(idBlog);
 
@@ -112,7 +118,8 @@ export class DetailBlogComponent implements OnInit {
   shareBlogByGmail(idUser: number, idBlog: number) {
     this.userService.shareBlogByEmail(idUser, idBlog).subscribe(next => {
       console.log(next);
-      alert('Share to gmail success');
+      this.checkShareGmail = true;
+      this.checkShareBlog = false;
     }, error => console.log(error));
   }
 
@@ -125,6 +132,7 @@ export class DetailBlogComponent implements OnInit {
   }
 
   checkDuplicateUser(listUser: User[], listUserDisplay: User[]): any {
+    // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < listUser.length; i++) {
       if (listUser[i].email !== this.tokenService.getEmail()) {
         listUserDisplay.push(listUser[i]);
