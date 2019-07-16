@@ -87,7 +87,8 @@ export class DetailBlogComponent implements OnInit {
   }
 
   shareBlog(idUser: number, idBlog: number) {
-    this.userService.shareBlog(idUser, idBlog).subscribe(next => console.log('Share Blog success'), error => console.log(error));
+    this.userService.shareBlog(idUser, idBlog).subscribe(
+      next => console.log('Share Blog success'), error => console.log(error));
     console.log(idUser);
     console.log(idBlog);
 

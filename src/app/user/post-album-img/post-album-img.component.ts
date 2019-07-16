@@ -6,6 +6,7 @@ import {TokenService} from '../../auth/token.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PostAlbumImgService} from '../../service/post-album-img.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-post-album-img',
@@ -19,7 +20,8 @@ export class PostAlbumImgComponent implements OnInit {
     private tokenService: TokenService,
     private fb: FormBuilder,
     private albumService: PostAlbumImgService,
-    private uploadService: UploadFileService
+    private uploadService: UploadFileService,
+    private router: Router
   ) {
   }
 
@@ -43,7 +45,7 @@ export class PostAlbumImgComponent implements OnInit {
         console.log(next);
         this.uploadService.uploadFile(next).subscribe(() => {
             console.log('oke uploaded !!!');
-            alert('Create Album success');
+            this.router.navigate(['/myAlbum']);
           },
           (err: HttpErrorResponse) => {
             console.log(err.message);
