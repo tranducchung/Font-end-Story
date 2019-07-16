@@ -24,14 +24,14 @@
             <h4 class="media-heading user_name" style="font-size: 16px">
               <span style="color: #385898">{{com.user.username}}</span>: {{com.content}}</h4>
             <p>
-              <small style="color: #90949c"><a href="">Like</a> - <button class="btn btn-link reply" (click)="readReply(i)">Reply</button></small>
+              <small style="color: #90949c"><a href="">Like</a> - <button class="btn btn-link reply" (click)="readReply(i)">({{com.replyList.length}})Reply</button></small>
             </p>
             <div *ngIf="indexOfShow === i">
               <div *ngFor="let reply of com.replyList">
                 <div class="avatarRely">
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT42KdF1tLjsApuRedABO9m4I-jTVZmTrugJt2ytGt6Zg_688JG" alt="">
                 </div>
-                <div class="commentReply" >{{reply.content}}</div>
+                <div class="commentReply" >{{reply.userReply.username}}: {{reply.content}}</div>
                 <p style="margin-left: 100px">
                   <small style="color: #90949c"><a href="">Like</a> - <a href="#">Share</a></small>
                 </p>

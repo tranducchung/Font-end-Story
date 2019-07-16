@@ -57,4 +57,5 @@ export interface Comment {
 export interface ReplyCommnent {
   id: number;
   content: string;
+  userReply: User;
 }

@@ -39,11 +39,10 @@
           <div class="content" style="text-align: center">
             <a [routerLink]="['/listBlog',blog.id,'detail']" [innerHTML]="blog.title"
                style="text-decoration: none;font-size: 25px; font-weight: 700"></a>
-            <h6 style="font-size: 12px; position: absolute; left: 245px">Since: {{blog.createDate}},</h6>
-            <h6 style="font-size: 12px; position: relative; left: 62px">Post by: {{blog.user.username}}</h6>
-            <div>
-              <img src="https://taocover.com/uploads/worigin/2017/06/30/frame-co-4-la5955c0e08ed41_6d9166ec71b9fd312ab5d78951d5e066.jpg" alt="" style="width: 100%; height: 300px">
-            </div>
+            <h6 style="font-size: 12px; position: absolute; left: 245px">Since: {{blog.createDate}}, Post by: {{blog.user.username}}</h6>
+<!--            <div>-->
+<!--              <img src="https://taocover.com/uploads/worigin/2017/06/30/frame-co-4-la5955c0e08ed41_6d9166ec71b9fd312ab5d78951d5e066.jpg" alt="" style="width: 100%; height: 300px">-->
+<!--            </div>-->
             <div style="margin-top: 20px">
               <div *ngIf="i===indexOfShow">
                 <div id="demo" class="collapse in">
@@ -78,16 +77,13 @@
         </div>
         <hr>
         <div>
-          <h6>ABOUT ME</h6>
+          <h6>ABOUT US</h6>
           <hr>
-          <img
-            src="https://colorlib.com/activello/wp-content/uploads/sites/10/2012/03/photo-1437915015400-137312b61975-330x220.jpg"
-            width="100%">
-          <p style="margin-top: 15px">My name is Activello and I am an awesome WordPress blog theme for photography,
-            food, travel and other blogs. I was created by colorlib.</p>
+          <img src="https://i.ibb.co/7yq673s/TheCAT.jpg" width="100%">
+          <p style="margin-top: 15px">We are the CAT - owner this website. Thanks for your used this product. Contact me, please send by email : tranducchung.10@gmail.com  </p>
         </div>
         <div style="margin-top: 30px">
-          <h6>FOLLOW ME</h6>
+          <h6>FOLLOW US</h6>
           <hr>
           <div style="margin-top: 25px; margin-left: 75px">
             <a href="#" class="hover"><i class="fab fa-facebook-square" style="margin-left: 15px; zoom: 2"></i></a>
