@@ -1,0 +1,40 @@
+<div *ngIf="info.token; else loggedOut" class="postForm">
+  <h2 class="text-center" style="font-size: 50px; color: #1da0f2">Write Blog</h2>
+<form [formGroup]="blogForm" (ngSubmit)="onSubmit()" class="col-md-6 offset-md-3">
+
+  <div class="form-group">
+    <label for="title" style="color: #1da0f2">Title</label>
+    <input type="text" class="form-control" id="title" formControlName="title">
+  </div>
+  <div *ngIf="blogForm.get('title').invalid && blogForm.get('title').touched" style="color: red">
+    The title section must not be blank and have a minimum length of 2
+  </div>
+
+  <div class="form-group">
+    <label for="content" style="color: #1da0f2">Content</label>
+    <ckeditor  formControlName="content" id="content" class="content"></ckeditor>
+  </div>
+  <div *ngIf="blogForm.get('content').invalid && blogForm.get('content').touched" style="color: red">
+    The content section must not be blank and have a minimum length of 2
+  </div>
+
+  <div class="form-group">
+    <label for="urlVideo" style="color: #1da0f2">URL Video Youtube</label>
+    <p style="color: #1da0f2">Example: <span style="color: red;"><b>https://www.youtube.com/watch?v=KMssEAd8aU8</b></span> <= This is URL video Youtube</p>
+    <input type="text" class="form-control" id="urlVideo" formControlName="urlVideo">
+  </div>
+  <div *ngIf="blogForm.get('urlVideo').invalid && blogForm.get('urlVideo').touched" style="color: red">
+    Url Youtube is invalid, Please read the instructions above !! Thank
+  </div>
+  <div class="form-group">
+    <label for="hashTags" style="color: #1da0f2">HashTags</label>
+    <input type="text" class="form-control" id="hashTags" formControlName="hashTags">
+  </div>
+  <input class="btn btn-primary" type="submit" value="Add">
+</form>
+</div>
+
+<ng-template #loggedOut>
+  <strong>Please Login!!!</strong>
+  <a class="btn btn-primary" href="auth/login">Login</a>
+</ng-template>

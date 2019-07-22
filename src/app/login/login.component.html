@@ -1,0 +1,67 @@
+<div *ngIf="isLoggedIn; else loggedOut">
+  <app-home></app-home>
+</div>
+
+<div>
+  <ng-template #loggedOut>
+    <section class="sign-in">
+      <div class="container" >
+        <div class="signin-content">
+          <div class="signin-image">
+            <figure><img src="https://i.ibb.co/FV8tb5d/signin-image.jpg"></figure>
+
+
+            <div class="form-button">
+              <span class="text-primary">Do you have account ? </span>
+              <a class="btn btn-outline-primary" href="signup">Sign up</a>
+            </div>
+          </div>
+
+          <div class="signin-form">
+            <h2 class="form-title btn-group-vertical">Sign in</h2>
+            <form method="POST" class="register-form" id="login-form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+
+              <div class="form-group">
+                <label for="email"><i class="far fa-envelope"></i></label>
+                <input type="text" name="email" id="email" placeholder="Email" class="form-control"
+                       [(ngModel)]="form.email" #email="ngModel" required/>
+                <div *ngIf="f.submitted && email.invalid" style="color: red">
+                  <div *ngIf="email.errors.required">email is required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i></label>
+                <input type="password" name="password" id="password" placeholder="Password" [(ngModel)]="form.password"
+                       #password="ngModel" required minlength="6"/>
+                <div *ngIf="f.submitted && password.invalid" style="color: red">
+                  <div *ngIf="password.errors.required">Password is required</div>
+                  <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+              </div>
+              <div *ngIf="isLoginFailed" style="color: red" class="alert alert-warning">
+                Invalid account or password! Please try again
+              </div>
+              <!--            <div class="form-group">-->
+              <!--              <input type="checkbox" name="remember-me" id="remember-me" style="position: absolute;right: 136px;top: 4px"/>-->
+              <!--              <label for="remember-me" class="label-agree-term" style="left: 22px">Remember me</label>-->
+              <!--            </div>-->
+              <div class="form-group form-button">
+                <input type="submit" name="signin" id="signin" class="form-submit" value="Login"/>
+              </div>
+            </form>
+            <div class="social-login">
+              <span class="text-primary">Or login with</span>
+              <div>
+                <a href="#" class="hover"><i class="fab fa-facebook-square" style="margin-left: 5px; zoom: 2"></i></a>
+                <a href="#" class="hover"><i class="fab fa-twitter " style="margin-left: 5px; zoom: 2 "></i></a>
+                <a href="#" class="hover"><i class="fab fa-google" style="margin-left: 5px; zoom: 2;color: red  "></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </ng-template>
+</div>
+
