@@ -33,7 +33,7 @@
     "ckeditor5-simple-upload": "^1.0.6",
     "core-js": "^2.5.4",
     "html2canvas": "^1.0.0-rc.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jspdf": "^1.5.3",
     "net": "^1.0.2",
     "ng2-ckeditor": "^1.2.3",
