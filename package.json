@@ -34,7 +34,7 @@
     "core-js": "^2.5.4",
     "html2canvas": "^1.0.0-rc.3",
     "jquery": "^3.4.1",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "net": "^1.0.2",
     "ng2-ckeditor": "^1.2.3",
     "ngx-editor": "^4.1.0",
